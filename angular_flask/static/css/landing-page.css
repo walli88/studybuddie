@@ -322,15 +322,6 @@ footer {
   background-repeat: no-repeat;
   background-position: 50% 0;
 }
-.cd-form label.cd-username {
-  background-image: url("../img/cd-icon-username.svg");
-}
-.cd-form label.cd-email {
-  background-image: url("../img/cd-icon-email.svg");
-}
-.cd-form label.cd-password {
-  background-image: url("../img/cd-icon-password.svg");
-}
 .cd-form input {
   margin: 0;
   padding: 0;
@@ -492,7 +483,6 @@ footer {
   height: 40px;
   right: 0;
   top: -40px;
-  background: url("../img/cd-icon-close.svg") no-repeat center center;
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
