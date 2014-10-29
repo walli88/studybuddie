@@ -3,6 +3,7 @@ import os
 from flask import Flask, request, Response
 from flask import render_template, url_for, redirect, send_from_directory
 from flask import send_file, make_response, abort
+from auth.forms import LoginForm
 
 from angular_flask import app
 
@@ -19,10 +20,11 @@ session = api_manager.session
 # routing for basic pages (pass routing onto the Angular app)
 @app.route('/')
 def basic_pages(**kwargs):
-	return make_response(open('angular_flask/templates/index.html').read())
+	form = LoginForm()
+	return render_template('index.html', form=form,)
 
 # routing for CRUD-style endpoints
-# passes routing onto the angular frontend if the requested resource exists
+# passes routing onto the angular frontend, if the requested resource exists
 from sqlalchemy.sql import exists
 
 crud_url_models = app.config['CRUD_URL_MODELS']
