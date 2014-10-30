@@ -6,7 +6,8 @@ from flask import send_file, make_response, abort
 from auth.forms import LoginForm
 
 from angular_flask import app
-
+from flask.ext.mail import Mail, Message
+from . import mail
 # routing for API endpoints (generated from the models designated as API_MODELS)
 from angular_flask.core import api_manager
 from angular_flask.models import *
@@ -18,10 +19,19 @@ for model_name in app.config['API_MODELS']:
 session = api_manager.session
 
 # routing for basic pages (pass routing onto the Angular app)
-@app.route('/')
+@app.route('/',methods=['GET', 'POST'])
 def basic_pages(**kwargs):
 	form = LoginForm()
+	user = form.email.data
+	if user is not None:
+		msg = Message("Welcome to Studybuddie",
+	                  sender="support@studybuddie.me",
+	                  recipients=[user])
+		msg.body = "Thanks for signing up for studybuddie! We will let you know as soon as we lauch!"
+		mail.send(msg)
 	return render_template('index.html', form=form,)
+
+
 
 # routing for CRUD-style endpoints
 # passes routing onto the angular frontend, if the requested resource exists

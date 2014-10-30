@@ -70,13 +70,16 @@
                         <h3>On-Demand Tutoring by Students</h3>
                         <hr class="intro-divider">
 
-                        <form class="form-lead-capture form-lead-capture-landing">
+
+                        <form class="form-lead-capture form-lead-capture-landing" method="POST">
                         <label class="email-capture">
                                 {{ form.email(placeholder="Enter your email address") }}
 
                         <label class="password-capture">
                                 {{ form.password(placeholder="Enter your password") }}
-                        <input type="submit" class="button button-navy input-lead-gen" value="Get Started"></input>
+
+                        {{form.submit(_class="button button-navy input-lead-gen", value="Get Started")}}
+                       <!-- <input type="submit" class="button button-navy input-lead-gen" value="Get Started"></input> -->
                         </form>
 
 
