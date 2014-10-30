@@ -69,17 +69,17 @@
                         <h1>StudyBuddie</h1>
                         <h3>On-Demand Tutoring by Students</h3>
                         <hr class="intro-divider">
-                        <ul class="list-inline intro-social-buttons">
-                            <li>
-                                <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
-                            </li>
-                        </ul>
+
+                        <form class="form-lead-capture form-lead-capture-landing">
+                        <label class="email-capture">
+                                {{ form.email(placeholder="Enter your email address") }}
+
+                        <label class="password-capture">
+                                {{ form.password(placeholder="Enter your password") }}
+                        <input type="submit" class="button button-navy input-lead-gen" value="Get Started"></input>
+                        </form>
+
+
                     </div>
                 </div>
             </div>
@@ -121,8 +121,8 @@
                 <div class="col-lg-6 col-sm-6">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">StudyBuddies: Handpicked Tutors</h2>
-    
-                    <p class="lead">Our tutor's are highly vetted, they are TA's, grad students, and upperclassmen who are experts in the classes you need helpl with</p>
+
+                    <p class="lead">Our tutor's are highly vetted, they are TA's, grad students, and upperclassmen who are experts in the classes you need help with</p>
 
                 </div>
             </div>
