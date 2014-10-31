@@ -6,8 +6,8 @@ class Config:
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
-    MAIL_USERNAME = "support@studybuddie.me"
-    MAIL_PASSWORD = "tuber2014"
+    MAIL_USERNAME = environ.get('MAIL_USERNAME')
+    MAIL_PASSWORD = environ.get('MAIL_PASSWORD')
 
 class DevelopmentConfig(Config):
     DEBUG = True
