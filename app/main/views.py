@@ -1,8 +1,11 @@
-# from flask import render_template, redirect, url_for, abort, flash, request,\
+from flask import render_template
+# , redirect, url_for, abort, flash, request,\
     # current_app, make_response
 # from flask.ext.login import login_required, current_user
 # from flask.ext.sqlalchemy import get_debug_queries
 from . import main
+from ..auth.forms import LoginForm
+
 # from .forms import EditProfileForm, EditProfileAdminForm, PostForm,\
 #     CommentForm
 # from .. import db
@@ -31,6 +34,7 @@ from . import main
 #     shutdown()
 #     return 'Shutting down...'
 @main.route('/', methods=['GET', 'POST'])
+def index():
     form = LoginForm()
     user = form.email.data
     if user is not None:
@@ -39,7 +43,8 @@ from . import main
                       recipients=[user])
         msg.body = "Thanks for signing up for studybuddie! We will let you know as soon as we lauch!"
         mail.send(msg)
-    return render_template('index.html', form=form,)
+    return render_template('index.html', form=form)
+
 # @main.route('/', methods=['GET', 'POST'])
 # def index():
 #     form = PostForm()
