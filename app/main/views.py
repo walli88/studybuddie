@@ -12,8 +12,8 @@ def index():
     user = User(email=form.email.data,
                     password_hash=form.password.data)
     if user is not None and form.email.data is not None:
-        # db.session.add(user)
-        # db.session.commit()
+        db.session.add(user)
+        db.session.commit()
         msg = Message("Welcome to Studybuddie",
                       sender="support@studybuddie.me",
                       recipients=[user.email])
