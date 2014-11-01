@@ -25,9 +25,9 @@ manager.add_command('db', MigrateCommand)
 
 @manager.command
 def deploy():
-	 from flask.ext.migrate import upgrade
-    # migrate database to latest revision
-    upgrade()
+	from flask.ext.migrate import upgrade
+	# migrate database to latest revision
+	upgrade()
 
 
 if __name__ == '__main__':
