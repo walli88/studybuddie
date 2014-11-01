@@ -9,15 +9,11 @@ from app import db
 @main.route('/', methods=['GET', 'POST'])
 def index():
     form = LoginForm()
-    print form
-    print form.email.data
-    print form.password.data
     user = User(email=form.email.data,
                     password_hash=form.password.data)
-    if user is not None:
+    if user is not None and form.email.data is not None:
         # db.session.add(user)
         # db.session.commit()
-        print user.email
         msg = Message("Welcome to Studybuddie",
                       sender="support@studybuddie.me",
                       recipients=[user.email])
