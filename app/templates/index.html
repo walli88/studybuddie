@@ -1,61 +1,4 @@
-<!DOCTYPE html>
-{% extends "bootstrap/base.html"%}
-{% import "bootstrap/wtf.html" as wtf %}
-
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>StudyBuddie Tutoring</title>
-
-    <!-- Custom CSS -->
-    {% block styles %}
-    {{super()}}
-    <link href="static/css/landing-page.css" rel="stylesheet">
-    {% endblock %}-->
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-{% block navbar %}
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">StudyBuddie</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse main-nav" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                <li><a class="cd-signin" href="#0">Sign in</a></li>
-                <li><a class="cd-signup" href="#0">Sign up</a></li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-{% endblock %}
+{% extends "base.html"%}
 
 {% block content %}
     <!-- Header -->
@@ -71,7 +14,7 @@
                         <hr class="intro-divider">
 
 
-                        <form class="form-lead-capture form-lead-capture-landing" method="POST">
+                        <form class="form-lead-capture form-lead-capture-landing" method="POST" action="auth/login">
                         <label class="email-capture">
                                 {{ form.email(placeholder="Enter your email address") }}
 
@@ -81,8 +24,6 @@
                         {{form.submit(_class="button button-navy input-lead-gen", value="Get Started")}}
                        <!-- <input type="submit" class="button button-navy input-lead-gen" value="Get Started"></input> -->
                         </form>
-
-
                     </div>
                 </div>
             </div>
@@ -100,7 +41,7 @@
 
              <div class="row text-center">
                 <div class="col-md-2 vcenter">
-                    <img class="img-responsive center-block" src="static/img/clock.png" alt="">
+                    <img class="img-responsive center-block" src="/static/img/clock.png" alt="">
                 </div>
                     <div class="col-md-5 vcenter">
                     <div class="clearfix"></div>
@@ -114,7 +55,7 @@
 
              <div class="row text-center">
                 <div class="col-md-2 vcenter">
-                    <img class="img-responsive center-block" src="static/img/person.png" alt="">
+                    <img class="img-responsive center-block" src="/static/img/person.png" alt="">
                 </div>
 
                 <div class="col-md-5 vcenter">
@@ -131,7 +72,7 @@
 
              <div class="row text-center">
                 <div class="col-md-2 vcenter">
-                    <img class="img-responsive center-block" src="static/img/money.png" alt="">
+                    <img class="img-responsive center-block" src="/static/img/money.png" alt="">
                 </div>
 
                 <div class="col-md-5 vcenter">
@@ -155,7 +96,7 @@
             <div class="row">
 
                 <div class="col-sm-4">
-                    <img class="img-responsive center-block" src="static/img/schedule.png" alt="">
+                    <img class="img-responsive center-block" src="/static/img/schedule.png" alt="">
                     <div align="center">
                         <h3 class="section-heading">Get Scheduled</h3>
                         <p class="lead">Pick a class and request a StudyBuddie anywhere from immediately to a week out</p>
@@ -164,7 +105,7 @@
 
 
                 <div class="col-sm-4">
-                    <img class="img-responsive center-block" src="static/img/matched.png" alt="">
+                    <img class="img-responsive center-block" src="/static/img/matched.png" alt="">
                     <div align="center">
                         <h3 class="section-heading">Get Matched</h3>
                         <p class="lead">We'll match you with the highest ranked tutor who is available and willing to travel to you.</p>
@@ -172,7 +113,7 @@
                 </div>
 
                 <div class="col-sm-4">
-                    <img class="img-responsive center-block" src="static/img/aplus.png" alt="">
+                    <img class="img-responsive center-block" src="/static/img/aplus.png" alt="">
                     <div align="center">
                         <h3 class="section-heading">Get A+'s</h3>
                         <p class="lead">Your StudyBuddy will answer your questions, help you tackle your homework, and teach you those difficult concepts</p>
@@ -327,14 +268,3 @@
         </div> <!-- cd-user-modal-container -->
     </div> <!-- cd-user-modal -->
     {% endblock %}
-
-{% block scripts %}
-    <script src="/static/js/jquery.js"></script>
-    <script src="/static/js/main.js"></script>
-    <script src="/static/js/modernizr.js"></script>
-{% endblock %}
-
-</body>
-
-</html>
-
