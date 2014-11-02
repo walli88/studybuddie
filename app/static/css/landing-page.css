@@ -21,10 +21,12 @@ h6 {
     font-weight: 700;
 }
 
+
 .lead {
     font-size: 18px;
     font-weight: 400;
 }
+
 
 .intro-header {
     padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
@@ -38,7 +40,7 @@ h6 {
 
 .intro-message {
     position: relative;
-    padding-top: 5%;
+    padding-top: 10%;
     padding-bottom: 20%;
 }
 
@@ -58,10 +60,57 @@ h6 {
     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
 }
 
+.quote-line {
+    text-align:center;
+}
+
+.intro-line-text{
+    padding-top:0px;
+    padding-bottom:30px;
+    padding-right:20px;
+    padding-left:20px;
+}
+
+.text-review{
+    font-style:italic;
+    font-size:18px;
+    font-weight:200;
+}
+
 .vcenter {
     display: inline-block;
     vertical-align: middle;
     float: none;
+}
+
+.row-centered {
+    text-align:center;
+}
+
+.col-centered {
+    display:inline-block;
+    float:none;
+    vertical-align: top;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+.col-centered-main {
+    display:inline-block;
+    float:none;
+    vertical-align: middle;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+
+.margin-lr{
+    margin-right:10px;
+    margin-left:10px;
 }
 
 @media(max-width:767px) {
@@ -131,18 +180,32 @@ h6 {
 
 .content-section-a {
     padding: 50px 0;
-    background-color: #f8f8f8;
+    background-color: #F0F0F0;
 }
 
 .content-section-b {
     padding: 50px 0;
+    /*!
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
+    */
 }
 
 .section-heading {
     margin-bottom: 10px;
-    color:#008C82;
+    color:#E34055;
+}
+
+.quote-textstyle{
+    padding:40px;
+    padding-top:25px;
+    padding-bottom:65px;
+    text-align: center;
+    font-size:48px;
+    font-weight:100;
+    font-style:italic;
+
+
 }
 
 .section-heading-spacer {
