@@ -19,4 +19,9 @@ def index():
                       recipients=[user.email])
         msg.body = "Thanks for signing up for studybuddie! We will let you know as soon as we lauch!"
         mail.send(msg)
-    return render_template('index2.html', form=form)
+    return render_template('index.html', form=form)
+
+@main.route('/profile', methods=['GET', 'POST'])
+def profile():
+    form = LoginForm()
+    return render_template('profile.html', form=form)
