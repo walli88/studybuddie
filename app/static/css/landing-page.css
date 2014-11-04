@@ -588,7 +588,7 @@ footer {
     opacity: 1;
     top: 23px;
     vertical-align: top;
-    left: 18px;
+    left: 60px;
     opacity: .5; }
 
 .password-capture {
@@ -622,7 +622,7 @@ footer {
     outline: 0;
     border: 0;
     margin: 0;
-    width: 100%;
+    width: 80%;
     padding: 20px;
     margin-bottom: 10px;
     font-size: 16px;
