@@ -14,22 +14,29 @@
                         <h3>On-Demand Tutoring for Students</h3>
                         <hr class="intro-divider">
 
+                     </div>  
+                 </div> 
+             </div>
 
-                        <form class="form-lead-capture form-lead-capture-landing" method="POST">
-                        <label class="email-capture">
-                                {{ form.email(placeholder="Enter your email address") }}
+             <div class="row">
+                        <form class="form-lead-capture" method="POST">
+                        
+                        
+         
+                        <label class="email-capture">    
+                        {{ form.email(placeholder="Enter your email address") }}
+                  
 
-                        <label class="password-capture">
-                                {{ form.password(placeholder="Enter your password") }}
-
+                  
                         {{form.submit(_class="button button-navy input-lead-gen", value="Get Started")}}
+                   
                        <!-- <input type="submit" class="button button-navy input-lead-gen" value="Get Started"></input> -->
                         </form>
-
-
-                    </div>
-                </div>
             </div>
+
+                    
+                
+            
 
         </div>
         <!-- /.container -->

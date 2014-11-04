@@ -41,7 +41,7 @@ h6 {
 .intro-message {
     position: relative;
     padding-top: 10%;
-    padding-bottom: 20%;
+  
 }
 
 .intro-message > h1 {
@@ -607,10 +607,7 @@ footer {
     opacity: .5; }
 
 .form-lead-capture {
-  width: 400px;
-  margin: 0 auto;
-  margin-top: 40px;
-  padding: 10px;
+
   -webkit-perspective: 1000; }
   .form-lead-capture .error {
     color: white;
