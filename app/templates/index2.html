@@ -37,6 +37,7 @@
     <!-- intro lines on top after splash screen -->
 
 
+ 
     <div class="content-section-b">
         <div class="row text-center row-centered">
             <h1 class="intro-line-text">Tutoring for the next generation of students</h1>
@@ -134,7 +135,7 @@
     <div class="content-section-b">
         <div class="container">
             <div class="row row-centered">
-                <div class="quote-textstyle">"StuddyBuddie is the best thing to ever have happened to me"</h3>
+                <div class="quote-textstyle">Study smarter with an expert, your StudyBuddie</h3>
             </div>
         </div>
     </div>
@@ -154,7 +155,7 @@
                     <img class="img-responsive img-circle center-block" src="static/img/walter.jpg" alt="">
                     <div align="center">
                         <br>
-                        <p class="text-review">The night before my econ final, I got a StuddyBuddie to meet me in 15minues. We went over the practice questions I got stuck on, and passed with an A!</p>
+                        <p class="text-review">I've spent countless nights cramming for tests where all I really needed was a StudyBuddie to clearify a few points for me.</p>
                     </div>
                 </div>
 
@@ -163,7 +164,7 @@
                     <img class="img-responsive img-circle center-block" src="static/img/souvik.jpg" alt="">
                     <div align="center">
                         <br>
-                        <p class="text-review">I stayed up all night writing an essay on 18th century pottery. My StudyBuddie met me in the morning and helped me make the final edits before it was due at noon.</p>
+                        <p class="text-review">After weeks of writing my senior thesis, what I need most is to have a StudyBuddie review my writing and help me clearify my thoughts.</p>
                     </div>
                 </div>
             </div>
@@ -180,11 +181,14 @@
 
         <div class="container">
 
-            <div class="row">
-                <div class="col-lg-7">
-                    <h2>Sign-up for our Beta Release:</h2>
+            <div class="row row-centered">
+                <div class="col-lg-12">
+                    <h2>Sign-up for our Beta Release</h2>
+                    <br>
                 </div>
-                <div class="col-lg-5">
+            </div>
+                <div class="row row-centered">
+                <!--
                     <ul class="list-inline banner-social-buttons">
                         <li>
                             <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
@@ -196,8 +200,23 @@
                             <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
                         </li>
                     </ul>
+                    -->
+                        <form class="form-lead-capture" method="POST" action="auth/register">
+
+
+
+                        <label class="email-capture">
+                        {{ form.email(placeholder="Enter your email address") }}
+
+
+
+                        {{form.submit(_class="button button-navy input-lead-gen", value="Join the Beta List")}}
+
+                       <!-- <input type="submit" class="button button-navy input-lead-gen" value="Get Started"></input> -->
+                        </form>
+
                 </div>
-            </div>
+            
 
         </div>
         <!-- /.container -->
@@ -211,6 +230,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="list-inline">
+
+                    <!--
                         <li>
                             <a href="#home">Home</a>
                         </li>
@@ -226,8 +247,11 @@
                         <li>
                             <a href="#contact">Contact</a>
                         </li>
+                        -->
                     </ul>
-                    <p class="copyright text-muted small">Copyright &copy; Sowvick 2014. All Rights Reserved</p>
+                    <p class="copyright text-muted small">Copyright &copy; StudyBuddie 2014. All Rights Reserved</p>
+                    <a class="copyright text-muted small" href="mailto:support@studybuddie.me">support@studybuddie.me</a>
+
                 </div>
             </div>
         </div>
