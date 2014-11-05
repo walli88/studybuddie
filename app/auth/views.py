@@ -23,4 +23,4 @@ def register():
 			db.session.commit()
 
 		send_email(user.email,"Welcome to Studybuddie", "email")
-	return render_template('index.html', form=form)
+	return render_template('index2.html', form=form)
