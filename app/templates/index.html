@@ -192,11 +192,13 @@
 
         <div class="container">
 
-            <div class="row">
-                <div class="col-lg-7">
-                    <h2>Sign-up for our Beta Release:</h2>
+            <div class="row row-centered">
+                <div class="col-lg-12">
+                    <h2>Sign-up for our Beta Release</h2>
+                    <br>
                 </div>
-                <div class="col-lg-5">
+            </div>
+                <div class="row row-centered">
                 <!--
                     <ul class="list-inline banner-social-buttons">
                         <li>
@@ -210,8 +212,22 @@
                         </li>
                     </ul>
                     -->
+                        <form class="form-lead-capture" method="POST" action="auth/register">
+
+
+
+                        <label class="email-capture">
+                        {{ form.email(placeholder="Enter your email address") }}
+
+
+
+                        {{form.submit(_class="button button-navy input-lead-gen", value="Join the Beta List")}}
+
+                       <!-- <input type="submit" class="button button-navy input-lead-gen" value="Get Started"></input> -->
+                        </form>
+
                 </div>
-            </div>
+            
 
         </div>
         <!-- /.container -->

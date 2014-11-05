@@ -1,247 +1,243 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>StudyBuddie</title>
+<meta name="viewport" content="width=device-width" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>StudyBuddie</title>
+<style>
+/* -------------------------------------
+		GLOBAL
+------------------------------------- */
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+	font-size: 100%;
+	line-height: 1.6;
+}
+
+img {
+	max-width: 100%;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: none;
+	width: 100%!important;
+	height: 100%;
+}
+
+
+/* -------------------------------------
+		ELEMENTS
+------------------------------------- */
+a {
+	color: #348eda;
+}
+
+.btn-primary {
+	text-decoration: none;
+	color: #FFF;
+	background-color: #348eda;
+	border: solid #348eda;
+	border-width: 10px 20px;
+	line-height: 2;
+	font-weight: bold;
+	margin-right: 10px;
+	text-align: center;
+	cursor: pointer;
+	display: inline-block;
+	border-radius: 25px;
+}
+
+.btn-secondary {
+	text-decoration: none;
+	color: #FFF;
+	background-color: #aaa;
+	border: solid #aaa;
+	border-width: 10px 20px;
+	line-height: 2;
+	font-weight: bold;
+	margin-right: 10px;
+	text-align: center;
+	cursor: pointer;
+	display: inline-block;
+	border-radius: 25px;
+}
+
+.last {
+	margin-bottom: 0;
+}
+
+.first {
+	margin-top: 0;
+}
+
+.padding {
+	padding: 10px 0;
+}
+
+
+/* -------------------------------------
+		BODY
+------------------------------------- */
+table.body-wrap {
+	width: 100%;
+	padding: 20px;
+}
+
+table.body-wrap .container {
+	border: 1px solid #f0f0f0;
+}
+
+
+/* -------------------------------------
+		FOOTER
+------------------------------------- */
+table.footer-wrap {
+	width: 100%;	
+	clear: both!important;
+}
+
+.footer-wrap .container p {
+	font-size: 12px;
+	color: #666;
 	
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+}
 
-<link rel="shortcut icon" href="https://img.createsend1.com/favicon.ico?3" />
-<link href="https://css.createsend1.com/css/global.min.css?h=74660BF3canvas2" media="screen,projection" rel="stylesheet" type="text/css" />
-<link href="https://css.createsend1.com/css/pretty.min.css?h=72A2F552canvas2" media="screen,projection" rel="stylesheet" type="text/css" />
-<link href="https://css.createsend1.com/css/olark.min.css?h=A953D70Dcanvas2" media="screen,projection" rel="stylesheet" type="text/css" />
-<link href="https://css.createsend1.com/css/print.min.css?h=70E44B0Bcanvas2" media="print" rel="stylesheet" type="text/css" />
-<link href="https://css.createsend1.com/css/cm-blue.min.css?h=CBDB6625canvas2" media="screen,projection" rel="stylesheet" type="text/css" />
-
-<link rel="apple-touch-icon-precomposed" href="https://img.createsend1.com/mobile_themes/cs/img/iOS-120.png" />
-<script type="text/javascript" src="https://js.createsend1.com/js/modernizr.2.6.2.js?h=F2001D54canvas2"></script>
-<script type="text/javascript" src="https://js.createsend1.com/js/jquery-1.7.2.min.js?h=C99A4659canvas2"></script>
-<script>var gaPrefix = 'app';var gaAccountClassic = '', gaAccountUniversal = '';</script>
-<script type="text/javascript" src="https://js.createsend1.com/js/cm.min.js?h=9304DA7Dcanvas2"></script>
+table.footer-wrap a {
+	color: #999;
+}
 
 
-    <script type="text/javascript" src="https://js.createsend1.com/js/reports.min.js?h=E1CCEAA6canvas2"></script>
-	<script type="text/javascript">
+/* -------------------------------------
+		TYPOGRAPHY
+------------------------------------- */
+h1, h2, h3 {
+	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	line-height: 1.1;
+	margin-bottom: 15px;
+	color: #000;
+	margin: 40px 0 10px;
+	line-height: 1.2;
+	font-weight: 200;
+}
 
-		$(window).resize(function(){
-			var topbarHeight = $(".bar-mid").height();
-			var paddingHeight = 60;
-			var newHeight = $(window).height() - topbarHeight - paddingHeight;
-			CS.ViewCampaign.changeFrameHeight(newHeight);
-		});
+h1 {
+	font-size: 36px;
+}
+h2 {
+	font-size: 28px;
+}
+h3 {
+	font-size: 22px;
+}
 
-		function change_parent_url(url) {
-	  	document.location = url;
-	}
-	</script>
+p, ul, ol {
+	margin-bottom: 10px;
+	font-weight: normal;
+	font-size: 14px;
+}
 
-	<style type="text/css">
+ul li, ol li {
+	margin-left: 5px;
+	list-style-position: inside;
+}
 
-		body, html {
-			margin: 0;
-			width: 100%;
-			height: 100%;
-			/*overflow: hidden;*/
-			background: #FFF;
-		}
-		iframe {
-			width: 100%;
-			border-top: 1px solid #c6c6c6;
-		}
-		.ie iframe {
-			margin-top: -2px;
-		}
+/* ---------------------------------------------------
+		RESPONSIVENESS
+		Nuke it from orbit. It's the only way to be sure.
+------------------------------------------------------ */
 
-		.email-client .bar-mid {
-		  /*height: 80px;*/
-		  background: #FFF;
-		  position: relative;
-		  z-index: 10;
-		  -webkit-box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 2px;
-		  -moz-box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 2px;
-		  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 2px;
-		}
-		.email-client .bar-mid .details {
-		  padding: 20px 0px 20px 0px;
-		  /*float: left;*/
-		  min-width: 320px;
-		  width: 100%;
-		}
-		.email-client .bar-mid .details .avatar {
-		  width: 38px;
-		  height: 38px;
-		  background: url(../img/subscriber-notifications/avatar-email-client.jpg) no-repeat;
-		  display: inline-block;
-		  float: left;
-		  margin-right: 10px;
-		  margin-left: 20px;
-		}
-		.email-client .bar-mid .details .text {
-		  /*float: left;*/
-		  width: 45%;
-		  display: inline-block;
-		}
-		.email-client .bar-mid .details .text p {
-		  color: #888888;
-		  font-size: 13px;
-		  padding-bottom: 2px;
-		}
-		.button-group {
-			width: 130px;
-			position: absolute;
-			top: 29px;
-			right: 20px;
-		}
+/* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
+.container {
+	display: block!important;
+	max-width: 600px!important;
+	margin: 0 auto!important; /* makes it centered */
+	clear: both!important;
+}
 
-		.print-preview {
-			color: #888 !important;
-			position: absolute;
-			top: 33px;
-			right: 165px;
-		}
+/* Set the padding on the td rather than the div for Outlook compatibility */
+.body-wrap .container {
+	padding: 20px;
+}
 
-		.dynamic-content {
-			width: 220px;
-			display: block;
-			background: #595d65;
-			float: left;
-			padding: 30px;
-			margin: 0px;
-			color: #FFF;
-			overflow: auto;
-	  		-moz-box-shadow:    inset -4px 0px 9px -6px #000;
-	  		-webkit-box-shadow: inset -4px 0px 9px -6px #000;
-	  		box-shadow:         inset -4px 0px 9px -6px #000;
+/* This should also be a block element, so that it will fill 100% of the .container */
+.content {
+	max-width: 600px;
+	margin: 0 auto;
+	display: block;
+}
 
-		}
+/* Let's make sure tables in the content area are 100% wide */
+.content table {
+	width: 100%;
+}
 
-		.dynamic-content .title {
-			color: #b8babc;
-			font-size: 18px;
-			font-weight: bold;
-			margin-bottom: 20px;
-		}
-
-		.dynamic-content .custom-field {
-			font-size: 14px;
-			font-weight: bold;
-			border-bottom: #686b72 solid 1px;
-			padding-bottom: 3px;
-			margin: 25px 0px 10px 0px;
-			display: block;
-		}
-
-		.dynamic-content label{
-			width: 100%;
-			text-align: left;
-			font-weight: normal;
-			margin-bottom: 5px;
-			float: none;
-		}
-
-		.email-preview {
-			margin-left: 280px;
-			background: #FFF;
-		}
-
-		@media only screen 
-		and (max-width : 580px) {
-
-			.button-group {
-				position: relative;
-				top: auto;
-				right: auto;
-				margin-left: 69px;
-				margin-top: 10px;
-			}
-
-			.print-preview {
-				position: relative;
-				top: auto;
-				right: auto;
-				margin-left: 15px;
-				margin-top: 3px;
-				display: inline-block;
-			}
-
-			.email-client .bar-mid .details .text {
-				width: 75%;
-			}
-		}
-
-   </style>
+</style>
 </head>
-<body>
-    
-		<div id="dc-html" class="dynamic-content" style="display: none">
-		    <form action="https://studybuddie.createsend.com/t/ViewEmailInIFrame/t/25CD7ADFA54B3497/C67FD2F38AC4859C/" method="post" target="htmlFrame">
-			<div class="title">Dynamic content</div>
-			<section class="new-form">
-                
-			</section>
-            </form>
-		</div>
 
-		<div class="email-preview" id="htmlWrap" style="margin-left: 0">
-		<iframe id="htmlFrame" name="htmlFrame" src="https://studybuddie.createsend.com/t/ViewEmailInIFrame/t/25CD7ADFA54B3497/C67FD2F38AC4859C/" width="100%" frameborder="0" scrolling="auto" class="frame"></iframe>
-		</div>
-	    
-    </div>
+<body bgcolor="#f6f6f6">
 
-    <div id="textPreview" style="display:none" >
-	    
-		<div id="textDetails" class="email-client">
-			<div class="bar-mid">
-				<div class="details">
-					<div class="avatar"></div>
-					<div class="text">
-						<p><strong>From:</strong> Adrian Zhang &lt;adrian&#64;studybuddie.me&gt;</p>
-						<p><strong>Subject:</strong> My First Campaign</p>
-					</div>
+<!-- body -->
+<table class="body-wrap">
+	<tr>
+		<td></td>
+		<td class="container" bgcolor="#FFFFFF">
 
-					
-						<div class="button-group" style="display: none">
-							<a class="button small" href="#" onclick="CS.ViewCampaign.toggleVersion();return false;">HTML</a>
-							<a href="#" class="button small selected">Plain text</a>
-						</div>
-					
-
-					<a href="https://studybuddie.createsend.com/t/ViewEmail/t/25CD7ADFA54B3497/C67FD2F38AC4859C/text/" target="_blank" class="print-preview">Print preview</a>
-
-				</div>
+			<!-- content -->
+			<div class="content">
+			<table>
+				<tr>
+					<td>
+						
+						<h1>StudyBuddie</h1>
+						<p>Thanks for your interest in StudyBuddie! We're working hard so that the next time you're cramming for a test, help is just a click away.</p>
+						<h2>Want to be a tutor?</h2>
+                        <p>StudyBuddies are experts who want to teach the community, email us at <a href="mailto:tutors@studybuddie.me">tutors@studybuddie.me</a> to learn more!</p>
+						<table>
+							<tr>
+								<td class="padding">
+								
+								</td>
+							</tr>
+						</table>
+						
+					</td>
+				</tr>
+			</table>
 			</div>
-		</div>
+			<!-- /content -->
+			
+		</td>
+		<td></td>
+	</tr>
+</table>
+<!-- /body -->
 
-		<div id="dc-text" class="dynamic-content" style="display: none">
-		    <form action="https://studybuddie.createsend.com/t/ViewEmailInIFrame/t/25CD7ADFA54B3497/C67FD2F38AC4859C/text/" method="post" target="textFrame">
-			<div class="title">Dynamic content</div>
-			<section class="new-form">
-                
-			</section>
-            </form>
-		</div>
+<!-- footer -->
+<table class="footer-wrap">
+	<tr>
+		<td></td>
+		<td class="container">
+			
+			<!-- content -->
+			<div class="content">
+				<table>
+					<tr>
+						<td align="center">
 
-			<div class="email-preview" id="textWrap" style="margin-left: 0">
-				<iframe id="textFrame" name="textFrame"  src="https://studybuddie.createsend.com/t/ViewEmailInIFrame/t/25CD7ADFA54B3497/C67FD2F38AC4859C/text/" width="100%" frameborder="0" scrolling="auto" class="frame"></iframe>
+						</td>
+					</tr>
+				</table>
 			</div>
-		    
-    	</div>
+			<!-- /content -->
+			
+		</td>
+		<td></td>
+	</tr>
+</table>
+<!-- /footer -->
 
-
-
-
-<script type="text/javascript">
-
-	var docHeight = $(document).height();
-	var topbarHeight = $(".bar-mid").height();
-	var paddingHeight = 60;
-
-	$(".frame").css("height", docHeight - topbarHeight - 1 + "px");
-	$('.dynamic-content').height(docHeight - topbarHeight - paddingHeight);
-	$(function () { $(".ko-radio").bind('change', function (e) { $(this).closest('form').trigger('submit'); }); });
-	
-	CS.ViewCampaign.showVersionSwitcher();
-
-
-</script>
 </body>
 </html>
