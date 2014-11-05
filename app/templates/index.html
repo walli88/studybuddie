@@ -12,31 +12,32 @@
                     <div class="intro-message">
                         <h1>StudyBuddie</h1>
                         <h3>On-Demand Tutoring for Students</h3>
+                        <h3>Thanks for Signing up! We'll let you know when we've launched!</h3>
                         <hr class="intro-divider">
 
-                     </div>  
-                 </div> 
+                     </div>
+                 </div>
              </div>
 
              <div class="row">
-                        <form class="form-lead-capture" method="POST">
-                        
-                        
-         
-                        <label class="email-capture">    
-                        {{ form.email(placeholder="Enter your email address") }}
-                  
+                        <form class="form-lead-capture" method="POST" action="auth/register">
 
-                  
+
+
+                        <label class="email-capture">
+                        {{ form.email(placeholder="Enter your email address") }}
+
+
+
                         {{form.submit(_class="button button-navy input-lead-gen", value="Get Started")}}
-                   
+
                        <!-- <input type="submit" class="button button-navy input-lead-gen" value="Get Started"></input> -->
                         </form>
             </div>
 
-                    
-                
-            
+
+
+
 
         </div>
         <!-- /.container -->

@@ -5,18 +5,22 @@ from ..models import User
 from .. import mail
 from app import db
 from flask.ext.mail import Message
+from ..email import send_email
 
-@auth.route('/login', methods=['GET', 'POST'])
-def login():
+@auth.route('/register', methods=['GET', 'POST'])
+def register():
 	form = LoginForm()
 	user = User(email=form.email.data,
 					password_hash=form.password.data)
+
 	if user is not None and form.email.data is not None:
-		db.session.add(user)
-		db.session.commit()
-		msg = Message("Welcome to Studybuddie",
-					  sender="support@studybuddie.me",
-					  recipients=[user.email])
-		msg.body = "Thanks for signing up for studybuddie! We will let you know as soon as we lauch!"
-		mail.send(msg)
+
+		userDb = User.query.filter_by(email=form.email.data).first()
+		if userDb is not None:
+			print "userDb something different" + ":" + userDb.email
+		if userDb is None:
+			db.session.add(user)
+			db.session.commit()
+
+		send_email(user.email,"Welcome to Studybuddie", "email")
 	return render_template('index.html', form=form)
