@@ -9,16 +9,7 @@ jQuery(document).ready(function($){
 		$forgot_password_link = $form_login.find('.cd-form-bottom-message a'),
 		$back_to_login_link = $form_forgot_password.find('.cd-form-bottom-message a'),
 		$main_nav = $('.main-nav'),
-		$intro_header = $('.intro-header'),
-		$signup = $intro_header.find('#showAfterLogin'),
-		$formSubmit = $intro_header.find("#submit");
 
-	$signup.hide();
-
-
-	$formSubmit.on('click', function(event){
-		$signup.show();
-	});
 	//open modal
 	$main_nav.on('click', function(event){
 
