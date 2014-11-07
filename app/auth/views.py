@@ -10,19 +10,17 @@ from ..email import send_email
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
 	form = LoginForm()
-	if form.validate_on_submit():
-		print "form validated"
-		user = User(email=form.email.data,
-						password_hash=form.password.data)
+	user = User(email=form.email.data,
+					password_hash=form.password.data)
 
-		if user is not None and form.email.data:
+	if user is not None and form.email.data:
 
-			userDb = User.query.filter_by(email=form.email.data).first()
-			if userDb is not None:
-				print "userDb something different" + ":" + userDb.email
-			if userDb is None:
-				db.session.add(user)
-				db.session.commit()
+		userDb = User.query.filter_by(email=form.email.data).first()
+		if userDb is not None:
+			print "userDb something different" + ":" + userDb.email
+		if userDb is None:
+			db.session.add(user)
+			db.session.commit()
 
-			send_email(user.email,"Welcome to Studybuddie", "email")
-	return redirect(url_for('main.index'))
+		send_email(user.email,"Welcome to Studybuddie", "email")
+	return redirect(url_for('main.signedup'))

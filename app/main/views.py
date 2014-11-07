@@ -12,6 +12,12 @@ def index():
     form = LoginForm()
     return render_template('index.html', form=form)
 
+@main.route('/signedup', methods=['GET', 'POST'])
+def signedup():
+    form = LoginForm()
+    return render_template('index2.html', form=form)
+
+
 @main.route('/profile', methods=['GET', 'POST'])
 def profile():
     form = LoginForm()
