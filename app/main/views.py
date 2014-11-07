@@ -1,6 +1,7 @@
 from flask import render_template
 from . import main
 from ..auth.forms import LoginForm
+from .forms import FindClassForm
 from flask.ext.mail import Message
 from .. import mail
 from ..models import User
@@ -20,5 +21,5 @@ def signedup():
 
 @main.route('/profile', methods=['GET', 'POST'])
 def profile():
-    form = LoginForm()
+    form = FindClassForm()
     return render_template('profile.html', form=form)

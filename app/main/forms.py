@@ -3,9 +3,14 @@ from wtforms import StringField, TextAreaField, BooleanField, SelectField,\
     SubmitField
 from wtforms.validators import Required, Length, Email, Regexp
 from wtforms import ValidationError
-from flask.ext.pagedown.fields import PageDownField
-from ..models import Role, User
+from ..models import User
 
+class FindClassForm(Form):
+    className = StringField('Class', validators=[Length(0, 64)])
+    professor = StringField('Professor', validators=[Length(0, 64)])
+    phoneNumber = StringField('Phone Number', validators=[Length(0, 64)])
+    needHelp = StringField('What do you need help in?')
+    howLongSession = StringField('How long would this session take?')
 
 class NameForm(Form):
     name = StringField('What is your name?', validators=[Required()])
@@ -48,12 +53,6 @@ class EditProfileAdminForm(Form):
         if field.data != self.user.username and \
                 User.query.filter_by(username=field.data).first():
             raise ValidationError('Username already in use.')
-
-
-class PostForm(Form):
-    body = PageDownField("What's on your mind?", validators=[Required()])
-    submit = SubmitField('Submit')
-
 
 class CommentForm(Form):
     body = StringField('Enter your comment', validators=[Required()])
