@@ -3,10 +3,13 @@ from flask.ext.bootstrap import Bootstrap
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.mail import Mail
 from config import config
+from mandrill import Mandrill
+
 
 bootstrap = Bootstrap()
 mail = Mail()
 db = SQLAlchemy()
+mandrill = Mandrill()
 
 
 def create_app(config_name):

@@ -5,7 +5,7 @@ from ..models import User
 from .. import mail
 from app import db
 from flask.ext.mail import Message
-from ..email import send_email
+from ..email import send_email, send_mandrill
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
@@ -22,5 +22,6 @@ def register():
 			db.session.add(user)
 			db.session.commit()
 
-		send_email(user.email,"Welcome to Studybuddie", "email")
+		#send_email(user.email,"Welcome to Studybuddie", "email")
+		send_mandrill(user.email, "Welcome to Studybuddie")
 	return redirect(url_for('main.signedup'))

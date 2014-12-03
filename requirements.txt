@@ -21,3 +21,4 @@ Flask-Mail
 Flask-Script
 Flask-Migrate
 psycopg2
+mandrill>=1.0.6
