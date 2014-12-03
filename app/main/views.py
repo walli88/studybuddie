@@ -23,3 +23,9 @@ def signedup():
 def profile():
     form = FindClassForm()
     return render_template('profile.html', form=form)
+
+
+@main.route('/aboutus', methods=['GET', 'POST'])
+def aboutus():
+    form = LoginForm()
+    return render_template('aboutus.html', form=form)
