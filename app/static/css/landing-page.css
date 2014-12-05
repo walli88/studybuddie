@@ -11,7 +11,8 @@ html {
 }
 
 body,
-h1,
+h1{    font-family: 'Bitter', serif;
+},
 h2,
 h3,
 h4,
@@ -27,6 +28,13 @@ h6 {
     font-weight: 400;
 }
 
+.lead-white {
+    font-size: 18px;
+    font-weight: 400;
+    color:#ffffff;
+}
+
+
 .intro-header {
     padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
     padding-bottom: 50px;
@@ -40,7 +48,7 @@ h6 {
     height:550px;
     text-align: center;
     color: #f8f8f8;
-    background: url("https://s3.amazonaws.com/nameless-harbor-2037/img/banner.jpg") no-repeat top center;
+    background: url("https://s3.amazonaws.com/nameless-harbor-2037/img/testbkgd.jpg") no-repeat top center;
     border-top: 30px solid transparent;
     background-size: cover;
 }
@@ -76,6 +84,8 @@ h6 {
     padding-bottom:30px;
     padding-right:20px;
     padding-left:20px;
+    color:556270;
+
 }
 
 .text-review{
@@ -187,11 +197,12 @@ h6 {
 
 .content-section-a {
     padding: 50px 0;
-    background-color: #F4F5F2;
+    background-color: #40c0cb;
 }
 
 .content-section-b {
     padding: 50px 0;
+    
     /*!
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
@@ -200,7 +211,12 @@ h6 {
 
 .section-heading {
     margin-bottom: 10px;
-    color:#E34055;
+    color:#fe4365;
+}
+
+.section-heading-light {
+    margin-bottom: 10px;
+    color:#45484b;
 }
 
 .quote-textstyle{
