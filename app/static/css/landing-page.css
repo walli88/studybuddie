@@ -40,7 +40,8 @@ h6 {
     height:450px;
     text-align: center;
     color: #f8f8f8;
-    background: url(../img/banner-alt-1.jpg) no-repeat top center;
+    background: url("https://s3.amazonaws.com/nameless-harbor-2037/img/banner.jpg") no-repeat top center;
+    border-top: 30px solid transparent;
     background-size: cover;
 }
 
