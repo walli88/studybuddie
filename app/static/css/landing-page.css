@@ -35,7 +35,7 @@ h6 {
 .lead-white {
     font-size: 18px;
     font-weight: 400;
-    color:#ffffff;
+    color:#fafafa;
 }
 
 
@@ -202,7 +202,7 @@ h6 {
 
 .content-section-a {
     padding: 50px 0;
-    background-color: #40c0cb;
+    background-color: #00a8c6;
 }
 
 .content-section-b {
@@ -216,12 +216,22 @@ h6 {
 
 .section-heading {
     margin-bottom: 10px;
-    color:#fe4365;
+    color:#c43533;
+    font-family: 'Bitter', serif;
 }
 
 .section-heading-light {
     margin-bottom: 10px;
-    color:#45484b;
+    color:#3f3f3f;
+    font-family: 'Bitter', serif;
+}
+
+.section-subtitle {
+    font-family: "Bitter";
+    margin-bottom: 10px;
+    font-style: italic;
+    color:#ffffff;
+
 }
 
 .quote-textstyle{

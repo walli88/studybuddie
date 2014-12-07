@@ -3,6 +3,9 @@
 
 {% block content %}
     <!-- Header -->
+<link href='http://fonts.googleapis.com/css?family=Bitter:400,700' rel='stylesheet' type='text/css'>
+
+
     <div class="intro-header-main">
 
         <div class="container">
@@ -11,8 +14,9 @@
                 <div class="col-lg-12">
                     <div class="intro-message">
                         <h1>StudyBuddie</h1>
-                        <h3>Study Smarter</h3>
+                          <h3 class="section-subtitle">Save Time, Study Smarter</h3> 
                         <hr class="intro-divider">
+
                      </div>
                  </div>
              </div>
@@ -28,7 +32,7 @@
 
 
 
-                        {{form.submit(_class="button button-navy input-lead-gen", value="Join the Beta List")}}
+                        {{form.submit(_class="button button-navy input-lead-gen", value="Be a StudyBuddie")}}
 
                        <!-- <input type="submit" class="button button-navy input-lead-gen" value="Get Started"></input> -->
                         </form>
@@ -49,20 +53,34 @@
 
     <div class="content-section-b">
         <div class="row text-center row-centered">
-            <h1 class="intro-line-text">Tutoring tailored to your schedule</h1>
+            <h1 class="intro-line-text">Become a StudyBuddie</h1>
         </div>
 
 
             <div class="row text-center row-centered">
                 <div class="col-md-2 col-sm-5 col-xs-5 vcenter col-centered-main">
-                    <img class="img-responsive center-block" src="/static/img/clock.png" alt="">
+                    <img class="img-responsive center-block" src="https://s3.amazonaws.com/nameless-harbor-2037/img/freetime.png" alt="">
                 </div>
 
                 <div class="col-md-5 col-sm-8 col-xs-8 vcenter col-centered-main">
                     <div class="clearfix"></div>
-                    <h3 class="section-heading">On-Demand Tutoring</h3>
+                    <h3 class="section-heading">Tutor in your free time</h3>
 
-                    <p class="lead">Midterm tomorrow? StudyBuddie will match you with a tutor who can meet you in an hour or less </p>
+                    <p class="lead">Send us your schedule, and we'll notify you of possible tutoring sessions you can elect to do</p>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row text-center row-centered">
+                <div class="col-md-2 col-sm-5 col-xs-5 vcenter col-centered-main">
+                    <img class="img-responsive center-block" src="https://s3.amazonaws.com/nameless-harbor-2037/img/paper_airplane.png" alt="">
+                </div>
+
+                <div class="col-md-5 col-sm-8 col-xs-8 vcenter col-centered-main">
+                    <div class="clearfix"></div>
+                    <h3 class="section-heading">Straight simple tutoring</h3>
+                    <p class="lead">We'll take care of the administrative hassles, so you can save time and focus on tutoring</p>
                 </div>
             </div>
 
@@ -70,30 +88,18 @@
 
              <div class="row text-center row-centered">
                 <div class="col-md-2 col-sm-5 col-xs-5 vcenter col-centered-main">
-                    <img class="img-responsive center-block" src="/static/img/person.png" alt="">
+                    <img class="img-responsive center-block" src="https://s3.amazonaws.com/nameless-harbor-2037/img/moneybag.png" alt="">
                 </div>
 
                 <div class="col-md-5 col-sm-8 col-xs-8 vcenter col-centered-main">
                     <div class="clearfix"></div>
-                    <h3 class="section-heading">Learn from an Expert</h3>
+                    <h3 class="section-heading">Get paid for what you know</h3>
 
-                    <p class="lead">StudyBuddies are grad students, TAs, and other experts that can answer the hard questions you have about your courses</p>
+                    <p class="lead">Aced your last semester classes? Get paid to spread the knowledge and become a StudyBuddie!</p>
                 </div>
             </div>
 
-            <br>
 
-             <div class="row text-center row-centered">
-                <div class="col-md-2 col-sm-5 col-xs-5 vcenter col-centered-main">
-                    <img class="img-responsive center-block" src="/static/img/money.png" alt="">
-                </div>
-
-                <div class="col-md-5 col-sm-8 col-xs-8 vcenter col-centered-main">
-                    <div class="clearfix"></div>
-                    <h3 class="section-heading">Tailored to your Class</h3>
-                    <p class="lead">From CHEM101 to CS295 StudyBuddies know exactly what you need to know to ace your class</p>
-                </div>
-            </div>
 
 
         </div>
@@ -109,28 +115,29 @@
             <div class="row row-centered margin-lr">
 
                 <div class="col-md-4 col-sm-8 col-xs-8 col-centered">
-                    <img class="img-responsive center-block" src="/static/img/schedule.png" alt="">
+                    <img class="img-responsive center-block" src="https://s3.amazonaws.com/nameless-harbor-2037/img/notify.png" alt="">
                     <div align="center">
-                        <h3 class="section-heading">Get Scheduled</h3>
-                        <p class="lead">Pick when you need a tutor, anytime between right now and next week</p>
+                        <h3 class="section-heading-light">Get Contacted</h3>
+                        <p class="lead-white">We'll send out notifications around your schedule on upcoming tutoring jobs</p>
                     </div>
                 </div>
 
 
                 <div class="col-md-4 col-sm-8 col-xs-8 col-centered">
-                    <img class="img-responsive center-block" src="/static/img/matched.png" alt="">
+                    <img class="img-responsive center-block" src="https://s3.amazonaws.com/nameless-harbor-2037/img/student.png" alt="">
                     <div align="center">
-                        <h3 class="section-heading">Get Matched</h3>
-                        <p class="lead">We will match you with a StudyBuddie who is an expert at your class</p>
+                        <h3 class="section-heading-light">Get Matched</h3>
+                        <p class="lead-white">Respond to notifications that you can commit to, and we'll pass along the student info</p>
+
                     </div>
                 </div>
 
 
                 <div class="col-md-4 col-sm-8 col-xs-8 col-centered">
-                    <img class="img-responsive center-block" src="/static/img/aplus.png" alt="">
+                    <img class="img-responsive center-block" src="https://s3.amazonaws.com/nameless-harbor-2037/img/piggybank.png" alt="">
                     <div align="center">
-                        <h3 class="section-heading">Get Better Grades</h3>
-                        <p class="lead">Your StudyBuddy will teach you what you need to know to ace the next test!</p>
+                        <h3 class="section-heading-light">Get Paid</h3>
+                        <p class="lead-white">We take care of the payment collection so you can get paid ASAP</p>
                     </div>
                 </div>
             </div>
@@ -152,16 +159,78 @@
 
 
 
+
+    <div class="content-section-b">
+        <div class="row text-center row-centered">
+            <h1 class="intro-line-text">Work Smarter with StudyBuddie</h1>
+        </div>
+
+
+            <div class="row text-center row-centered">
+                <div class="col-md-2 col-sm-5 col-xs-5 vcenter col-centered-main">
+                    <img class="img-responsive center-block" src="https://s3.amazonaws.com/nameless-harbor-2037/img/books.png" alt="">
+                </div>
+
+                <div class="col-md-5 col-sm-8 col-xs-8 vcenter col-centered-main">
+                    <div class="clearfix"></div>
+                    <h3 class="section-heading">One Time Tutoring</h3>
+
+                    <p class="lead">StudyBuddies commit to only one tutoring session, no need to prepare weekly lesson plans</p>
+                </div>
+            </div>
+
+            <br>
+
+             <div class="row text-center row-centered">
+                <div class="col-md-2 col-sm-5 col-xs-5 vcenter col-centered-main">
+                    <img class="img-responsive center-block" src="https://s3.amazonaws.com/nameless-harbor-2037/img/hasslefree.png" alt="">
+                </div>
+
+                <div class="col-md-5 col-sm-8 col-xs-8 vcenter col-centered-main">
+                    <div class="clearfix"></div>
+                    <h3 class="section-heading">Hassle Free</h3>
+
+                    <p class="lead">No need to advertise, schedule, or collect money, we take care of all of it so you don't have to</p>
+                </div>
+            </div>
+
+            <br>
+
+             <div class="row text-center row-centered">
+                <div class="col-md-2 col-sm-5 col-xs-5 vcenter col-centered-main">
+                    <img class="img-responsive center-block" src="https://s3.amazonaws.com/nameless-harbor-2037/img/bird.png" alt="">
+                </div>
+
+                <div class="col-md-5 col-sm-8 col-xs-8 vcenter col-centered-main">
+                    <div class="clearfix"></div>
+                    <h3 class="section-heading">Be the Early Bird</h3>
+                    <p class="lead">Sign up today to be a StudyBuddie and we'll contact you when we launch with special perks!</p>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+
+
+
+
+
+
+
     <!-- /.content-section-a -->
 
-        <div class="content-section-b">
+<!--
+    <div class="content-section-b">
 
         <div class="container">
 
             <div class="row row-centered">
 
                 <div class="col-sm-4 col-centered">
-                    <img class="img-responsive img-circle center-block" src="/static/img/walter.jpg" alt="">
+                    <img class="img-responsive img-circle center-block" src="https://s3.amazonaws.com/nameless-harbor-2037/img/walter.jpg" alt="">
                     <div align="center">
                         <br>
                         <p class="text-review">I've spent countless nights cramming for tests when all I really needed was a StudyBuddie to clarify a few points for me.</p>
@@ -170,7 +239,7 @@
 
 
                 <div class="col-sm-4 col-sm-offset-1 col-centered">
-                    <img class="img-responsive img-circle center-block" src="/static/img/souvik.jpg" alt="">
+                    <img class="img-responsive img-circle center-block" src="https://s3.amazonaws.com/nameless-harbor-2037/img/souvik.jpg" alt="">
                     <div align="center">
                         <br>
                         <p class="text-review">After writing my final paper, what I needed most was to have a StudyBuddie review my writing and help me clarify my thoughts.</p>
@@ -179,9 +248,10 @@
             </div>
 
         </div>
-        <!-- /.container -->
+    </div>    
+-->
 
-    </div>
+
 
 
     <!-- footer stuff -->
