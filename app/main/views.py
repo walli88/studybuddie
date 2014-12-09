@@ -25,7 +25,7 @@ def profile():
     return render_template('profile.html', form=form)
 
 
-@main.route('/aboutus', methods=['GET', 'POST'])
+@main.route('/tutors', methods=['GET', 'POST'])
 def aboutus():
     form = LoginForm()
-    return render_template('aboutus.html', form=form)
+    return render_template('tutors.html', form=form)
