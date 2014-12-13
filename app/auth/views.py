@@ -15,8 +15,8 @@ def register():
 
 	if user is not None and form.email.data:
 		userDb = User.query.filter_by(email=form.email.data).first()
-		if userDb is not None:
-			print "userDb something different" + ":" + userDb.email
+		# if userDb is not None:
+			#print "userDb something different" + ":" + userDb.email
 		if userDb is None:
 			db.session.add(user)
 			db.session.commit()
@@ -27,4 +27,4 @@ def register():
 @auth.route('/registertutor', methods=['GET', 'POST'])
 def registertutor():
 	form = LoginForm()
-	return redirect(url_for('main.tutorprofile', email=form.email.data))
+	return redirect(url_for('main.tutorprofile', email=form.email.data	))

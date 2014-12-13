@@ -9,10 +9,11 @@ class User(db.Model):
 class Tutor(db.Model):
 	__tablename__ = 'tutor'
 	id = db.Column(db.Integer, primary_key=True)
+	fullname = db.Column(db.String(64))
 	email = db.Column(db.String(64), unique=True, index=True)
 	school = db.Column(db.String(64))
 	grade = db.Column(db.String(64))
 	major = db.Column(db.String(64))
 	gpa = db.Column(db.Float)
-	phone = db.Column(db.String(10))
-	relExp = db.Column(db.String(500))
+	phonenumber = db.Column(db.String(10))
+	relexp = db.Column(db.String(500))
