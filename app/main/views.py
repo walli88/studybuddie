@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request
 from . import main
 from ..auth.forms import LoginForm
 from .forms import FindClassForm,TutorForm
@@ -32,17 +32,20 @@ def tutors():
 @main.route('/tutorprofile', methods=['GET', 'POST'])
 def tutorprofile():
 	form = TutorForm()
-	form.email.data=request.args.get('email')
+	if request.method == 'GET' and request.args.get('email') is not None:
+		form.email.data=request.args.get('email')
 	if form.validate_on_submit():
-		print "validate"
+		# print "validate"
 		form = TutorForm()
 		tutor = Tutor(fullname = form.fullName.data, email=form.email.data
 			,school=form.school.data, grade=form.grade.data
 			,major=form.major.data,gpa=form.major.data if form.major.data != "(Optional)" else None
 			,phonenumber=form.phonenumber.data,relexp=form.relexp.data)
 		if tutor is not None:
+			# print "tutor is not None"
 			tutorDb = Tutor.query.filter_by(email=form.email.data).first()
 			if tutorDb is None:
+				# print "tutordb is not None"
 				db.session.add(tutor)
 				db.session.commit()
 	return render_template('tutorprofile.html', form=form)
