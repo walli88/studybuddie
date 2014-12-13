@@ -1,8 +1,14 @@
 from flask.ext.wtf import Form
 from wtforms import StringField, TextAreaField, BooleanField, SelectField,SubmitField, IntegerField, DecimalField
-from wtforms.validators import Required, Length, Email, Regexp, NumberRange
+from wtforms.validators import Required, Length, Email, Regexp, NumberRange, Optional
 from wtforms import ValidationError
 from ..models import User
+import re
+
+def validatePhone(form, field):
+    if field.data != "(Optional)" and (len(field.data) !=10 or re.match("^[0-9]*$",field.data) is None):
+        raise ValidationError("Telephone should be 10 digits (no spaces)")
+
 
 class FindClassForm(Form):
     className = StringField('Class', validators=[Length(0, 64)])
@@ -14,14 +20,15 @@ class FindClassForm(Form):
 class TutorForm(Form):
     fullName = StringField('Full Name', validators=[Required(), Length(1, 64)])
     email = StringField('Email', validators=[Required(), Length(1, 64), Email()])
-    school  = SelectField(u'School', choices=[('nyu', 'New York University'), ('colm', 'Columbia University')])
-    grade = SelectField(u'Grade', choices=[('fresh', 'Freshman'), ('soph', 'Sophmore'), ('junior', 'Junior'),('senior', 'Senior'),
+    school  = SelectField(u'School', default='none', choices=[('none', 'Please select your school'), ('nyu', 'New York University'), ('colm', 'Columbia University')])
+    grade = SelectField(u'Grade', default = 'none', choices=[('none', 'Please select your grade'),('fresh', 'Freshman'), ('soph', 'Sophmore'), ('junior', 'Junior'),('senior', 'Senior'),
         ('grad', 'Masters'),('phd', 'Ph.D'),('alum', 'Alumni')])
-    major = StringField('Major')
-    gpa = DecimalField('Gpa', validators=[NumberRange(min=0,max=4,message="Please enter a value between 0.0 and 4.0")])
-    phoneNumber = StringField('Phone', validators=[Length(min=10, max=10, message="Telephone should be 10 digits (no spaces)"),Regexp('^[0-9]*$', 0, "Telephone should be digits ")])
-    relevantExperience = TextAreaField('Relevant Experience')
+    major = StringField('Major', default='(Optional)')
+    gpa = DecimalField("Bachelor's GPA", validators=[NumberRange(min=0,max=4,message="Please enter a value between 0.0 and 4.0"), Optional()])
+    phoneNumber = StringField('Phone',default='(Optional)', validators=[validatePhone])
+    relevantExperience = TextAreaField('Relevant Experience', default='(Optional)')
     submit = SubmitField()
+
 
 class NameForm(Form):
     name = StringField('What is your name?', validators=[Required()])
