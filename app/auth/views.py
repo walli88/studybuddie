@@ -14,14 +14,17 @@ def register():
 					password_hash=form.password.data)
 
 	if user is not None and form.email.data:
-
 		userDb = User.query.filter_by(email=form.email.data).first()
 		if userDb is not None:
 			print "userDb something different" + ":" + userDb.email
 		if userDb is None:
 			db.session.add(user)
 			db.session.commit()
-
 		#send_email(user.email,"Welcome to Studybuddie", "email")
 		send_mandrill(user.email, "Welcome to Studybuddie")
 	return redirect(url_for('main.signedup'))
+
+@auth.route('/registertutor', methods=['GET', 'POST'])
+def registertutor():
+	form = LoginForm()
+	return redirect(url_for('main.tutorprofile', email=form.email.data))

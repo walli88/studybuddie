@@ -1,7 +1,6 @@
 from flask.ext.wtf import Form
-from wtforms import StringField, TextAreaField, BooleanField, SelectField,\
-    SubmitField
-from wtforms.validators import Required, Length, Email, Regexp
+from wtforms import StringField, TextAreaField, BooleanField, SelectField,SubmitField, IntegerField, DecimalField
+from wtforms.validators import Required, Length, Email, Regexp, NumberRange
 from wtforms import ValidationError
 from ..models import User
 
@@ -12,10 +11,21 @@ class FindClassForm(Form):
     needHelp = StringField('What do you need help in?')
     howLongSession = StringField('How long would this session take?')
 
+class TutorForm(Form):
+    fullName = StringField('Full Name', validators=[Required(), Length(1, 64)])
+    email = StringField('Email', validators=[Required(), Length(1, 64), Email()])
+    school  = SelectField(u'School', choices=[('nyu', 'New York University'), ('colm', 'Columbia University')])
+    grade = SelectField(u'Grade', choices=[('fresh', 'Freshman'), ('soph', 'Sophmore'), ('junior', 'Junior'),('senior', 'Senior'),
+        ('grad', 'Masters'),('phd', 'Ph.D'),('alum', 'Alumni')])
+    major = StringField('Major')
+    gpa = DecimalField('Gpa', validators=[NumberRange(min=0,max=4,message="Please enter a value between 0.0 and 4.0")])
+    phoneNumber = StringField('Phone', validators=[Length(min=10, max=10, message="Telephone should be 10 digits (no spaces)"),Regexp('^[0-9]*$', 0, "Telephone should be digits ")])
+    relevantExperience = TextAreaField('Relevant Experience')
+    submit = SubmitField()
+
 class NameForm(Form):
     name = StringField('What is your name?', validators=[Required()])
     submit = SubmitField('Submit')
-
 
 class EditProfileForm(Form):
     name = StringField('Real name', validators=[Length(0, 64)])
