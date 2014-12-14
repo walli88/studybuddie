@@ -41,10 +41,13 @@ def tutorprofile():
 			,school=form.school.data, grade=form.grade.data
 			,major=form.major.data,gpa=form.major.data if form.major.data != "(Optional)" else None
 			,phonenumber=form.phonenumber.data,relexp=form.relexp.data)
-		if tutor is not None:
+		if tutor is not None and form.email.data:
 			print "tutor is not None"
+			print "email" + ":" + form.email.data
 			tutorDb = Tutor.query.filter_by(email=form.email.data).first()
-			print "tutorDb email" + ":" + tutorDb.email
+			if tutorDb is not None:
+				print "tutorDb email" + ":" + tutorDb.email
+			print "afterDb"
 			if tutorDb is None:
 				print "tutordb is None"
 				print db.session.add(tutor)
