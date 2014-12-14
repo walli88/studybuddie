@@ -44,8 +44,9 @@ def tutorprofile():
 		if tutor is not None:
 			print "tutor is not None"
 			tutorDb = Tutor.query.filter_by(email=form.email.data).first()
+			print "tutorDb email" + ":" + tutorDb.email
 			if tutorDb is None:
-				print "tutordb is not None"
+				print "tutordb is None"
 				print db.session.add(tutor)
 				db.session.commit()
 	return render_template('tutorprofile.html', form=form)
