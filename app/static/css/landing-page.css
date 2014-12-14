@@ -417,7 +417,6 @@ footer {
 
 .cd-user-modal-container {
   position: relative;
-  width: 90%;
   max-width: 600px;
   background: #FFF;
   -webkit-transform: translateY(-30px);
@@ -492,7 +491,6 @@ footer {
 }
 .cd-form label {
   font-size: 14px;
-  font-size: 0.875rem;
 }
 .cd-form label.image-replace {
   /* replace text with an icon */
@@ -582,7 +580,6 @@ footer {
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
   font-size: 14px;
-  font-size: 0.875rem;
   color: #343642;
 }
 .cd-form .cd-error-message {
@@ -665,7 +662,6 @@ footer {
   bottom: -30px;
   text-align: center;
   font-size: 14px;
-  font-size: 0.875rem;
 }
 .cd-form-bottom-message a {
   color: #FFF;

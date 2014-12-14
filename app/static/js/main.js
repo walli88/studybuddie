@@ -13,18 +13,19 @@ jQuery(document).ready(function($){
 	//open modal
 	$main_nav.on('click', function(event){
 
-		if( $(event.target).is($main_nav) ) {
-			// on mobile open the submenu
-			$(this).children('ul').toggleClass('is-visible');
-		} else {
-			// on mobile close submenu
-			$main_nav.children('ul').removeClass('is-visible');
-			//show modal layer
-			$form_modal.addClass('is-visible');
-			//show the selected form
-			( $(event.target).is('.cd-signup') ) ? signup_selected() : login_selected();
+		if($(event.target).is('.cd-signup') || $(event.target).is('.cd-signin') ) {
+			if( $(event.target).is($main_nav) ) {
+				// on mobile open the submenu
+				$(this).children('ul').toggleClass('is-visible');
+			} else {
+				// on mobile close submenu
+				$main_nav.children('ul').removeClass('is-visible');
+				//show modal layer
+				$form_modal.addClass('is-visible');
+				//show the selected form
+				( $(event.target).is('.cd-signup') ) ? signup_selected() : login_selected();
+			}
 		}
-
 	});
 
 	//close modal
