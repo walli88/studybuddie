@@ -787,3 +787,12 @@ p.copyright {
     margin: 15px 0 0;
 }
 
+.cd-form label.cd-username {
+  background-image: url("https://s3.amazonaws.com/nameless-harbor-2037/img/cd-icon-username.svg");
+}
+.cd-form label.cd-email {
+  background-image: url("https://s3.amazonaws.com/nameless-harbor-2037/img/cd-icon-email.svg");
+}
+.cd-form label.cd-password {
+  background-image: url("https://s3.amazonaws.com/nameless-harbor-2037/img/cd-icon-password.svg");
+}

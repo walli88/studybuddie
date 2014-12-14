@@ -31,10 +31,10 @@ StudyBuddie Tutoring
             <div class="collapse navbar-collapse main-nav" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
 <!-- 					<li>
-						<a class="cd-signin" href="#0">Sign in</a>
+						<a class="cd-signin" href="#0">Log in</a>
 					</li>
 					<li>
-						<a class="cd-signup" href="#0">Sign up</a>
+						<a class="cd-signup" href="#0">Register</a>
 					</li> -->
                     <li>
                         <a href="/">About</a>
@@ -61,19 +61,21 @@ StudyBuddie Tutoring
         <div class="cd-user-modal-container"> <!-- this is the container wrapper -->
             <ul class="cd-switcher list-unstyled">
                 <li>
-                <a href="#0">Sign in</a>
+                <a href="#0">Login in</a>
                 </li>
                 <li>
-                <a href="#0">New account</a>
+                <a href="#0">Register</a>
                 </li>
             </ul>
 
             <div id="cd-login"> <!-- log in form -->
             <form class="cd-form">
             <p class="fieldset">
+	            <label class="image-replace cd-email" for="signup-email">E-mail</label>
                     {{ form.email(class_="full-width has-padding has-border", id="signin-email", type="email", placeholder="E-mail") }}
             </p>
             <p class="fieldset">
+	            <label class="image-replace cd-password" for="signup-password">Password</label>
                     {{ form.password(class_="full-width has-padding has-border", id="signin-password", type="text", placeholder="Password") }}
                     <a href="#0" class="hide-password">Hide</a>
             </p>
@@ -113,7 +115,7 @@ StudyBuddie Tutoring
                     </p>
 
                     <p class="fieldset">
-                        <input class="full-width has-padding" type="submit" value="Create account">
+                        <input class="full-width has-padding" type="submit" value="Register">
                     </p>
                 </form>
 
