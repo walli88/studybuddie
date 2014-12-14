@@ -39,11 +39,14 @@ def tutorprofile():
 		form = TutorForm()
 		tutor = Tutor(fullname = form.fullName.data, email=form.email.data
 			,school=form.school.data, grade=form.grade.data
-			,major=form.major.data,gpa=form.major.data if form.major.data != "(Optional)" else None
+			,major=form.major.data,gpa=float(form.gpa.data) if form.gpa.data != "(Optional)" else None
 			,phonenumber=form.phonenumber.data,relexp=form.relexp.data)
+		print tutor.gpa
+		print tutor
 		if tutor is not None and form.email.data:
 			print "tutor is not None"
 			print "email" + ":" + form.email.data
+			print "phone" + ":" + form.phonenumber.data
 			tutorDb = Tutor.query.filter_by(email=form.email.data).first()
 			if tutorDb is not None:
 				print "tutorDb email" + ":" + tutorDb.email
