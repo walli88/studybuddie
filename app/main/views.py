@@ -45,4 +45,4 @@ def tutorprofile():
 			if tutorDb is None:
 				db.session.add(tutor)
 				db.session.commit()
-	return render_template('tutorprofile.html', form=form)
+	return render_template('tutorprofile.html', form=form, hideLogin=True)

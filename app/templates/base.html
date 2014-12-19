@@ -57,6 +57,8 @@ StudyBuddie Tutoring
 		</div>
 		<!-- /.container -->
 	</nav>
+
+		{% if not hideLogin %}
 	    <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
         <div class="cd-user-modal-container"> <!-- this is the container wrapper -->
             <ul class="cd-switcher list-unstyled">
@@ -142,6 +144,7 @@ StudyBuddie Tutoring
             <a href="#0" class="cd-close-form">Close</a>
         </div> <!-- cd-user-modal-container -->
     </div> <!-- cd-user-modal -->
+    {% endif %}
 {% endblock %}
 
 {% block content %}
