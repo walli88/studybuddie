@@ -17,3 +17,5 @@ class Tutor(db.Model):
 	gpa = db.Column(db.Float)
 	phonenumber = db.Column(db.String(10))
 	relexp = db.Column(db.String(500))
+	created_on = db.Column(db.DateTime, default=db.func.now())
+	updated_on = db.Column(db.DateTime, default=db.func.now(), onupdate=db.func.now())
