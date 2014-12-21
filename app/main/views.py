@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, flash
 from . import main
 from ..auth.forms import LoginForm
 from .forms import FindClassForm,TutorForm
@@ -45,4 +45,5 @@ def tutorprofile():
 			if tutorDb is None:
 				db.session.add(tutor)
 				db.session.commit()
+				flash('Thanks for signing up!')
 	return render_template('tutorprofile.html', form=form, hideLogin=True)
