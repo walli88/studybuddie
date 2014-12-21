@@ -20,7 +20,8 @@ class FindClassForm(Form):
 class TutorForm(Form):
     fullName = StringField('Full Name', validators=[Required(), Length(1, 64)])
     email = StringField('Email', validators=[Required(), Length(1, 64), Email()])
-    school  = SelectField(u'School', default='none', choices=[('none', 'Please select your school'), ('nyu', 'New York University'), ('colm', 'Columbia University')])
+    school  = SelectField(u'School', default='none', choices=[('none', 'Please select your school'), ('colm', 'Columbia University'), ('fordham', 'Fordham University'), ('hunter', 'Hunter University'), ('nyu', 'New York University'), ('pace', 'Pace University'), ('cunyq', 'Queens College, CUNY')
+        , ('other', 'Other')])
     grade = SelectField(u'Grade', default = 'none', choices=[('none', 'Please select your grade'),('fresh', 'Freshman'), ('soph', 'Sophmore'), ('junior', 'Junior'),('senior', 'Senior'),
         ('grad', 'Masters'),('phd', 'Ph.D'),('alum', 'Alumni')])
     major = StringField('Major', default='(Optional)',validators=[Length(0, 64)])
