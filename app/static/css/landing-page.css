@@ -96,6 +96,7 @@ h6 {
 .thanks-font{
   text-shadow: 0.1em 0.1em 0.2em black;
   color:#ffffff;
+  font-size:24px;
 }
 .text-review{
     font-style:italic;
