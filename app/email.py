@@ -18,9 +18,9 @@ def send_email(to, subject, template, **kwargs):
     thr.start()
     return thr
 
-def send_mandrill(to, subject):
+def send_mandrill(to, subject, template):
     mandrill_client = mandrill.Mandrill('Wp4DNuztdO3KqDScxT2l0w')
-    template_content = [{'content': 'example content', 'name': 'WelcomeEmail'}]
+    template_content = [{'content': 'example content', 'name': template}]
     message = {'from_email': 'support@studybuddie.me',
     'to': [{'email': to,
              'name': 'Recipient Name',

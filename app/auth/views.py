@@ -21,7 +21,7 @@ def register():
 			db.session.add(user)
 			db.session.commit()
 		#send_email(user.email,"Welcome to Studybuddie", "email")
-		send_mandrill(user.email, "Welcome to Studybuddie")
+		send_mandrill(user.email, "Welcome to Studybuddie", 'WelcomeEmail')
 	return redirect(url_for('main.signedup'))
 
 @auth.route('/registertutor', methods=['GET', 'POST'])

@@ -6,7 +6,7 @@ from flask.ext.mail import Message
 from .. import mail
 from ..models import User, Tutor
 from app import db
-from ..email import send_email
+from ..email import send_email, send_mandrill
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
@@ -34,6 +34,7 @@ def tutorprofile():
 	form = TutorForm()
 	if request.method == 'GET' and request.args.get('email') is not None:
 		form.email.data=request.args.get('email')
+	send_mandrill(form.email.data, "Welcome to Studybuddie", 'TutorWelcomeEmail')
 	if form.validate_on_submit():
 		form = TutorForm()
 		tutor = Tutor(fullname = form.fullName.data, email=form.email.data
