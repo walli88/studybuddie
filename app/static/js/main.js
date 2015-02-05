@@ -9,6 +9,8 @@ jQuery(document).ready(function($){
 		$forgot_password_link = $form_login.find('.cd-form-bottom-message a'),
 		$back_to_login_link = $form_forgot_password.find('.cd-form-bottom-message a'),
 		$main_nav = $('.main-nav')
+		// formErrors = {% if form_errors %}true{% else %}false{% endif %};
+
 
 	//open modal
 	$main_nav.on('click', function(event){
@@ -92,15 +94,15 @@ jQuery(document).ready(function($){
 		$form_forgot_password.addClass('is-selected');
 	}
 
-	//REMOVE THIS - it's just to show error messages
-	$form_login.find('input[type="submit"]').on('click', function(event){
-		event.preventDefault();
-		$form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-	});
-	$form_signup.find('input[type="submit"]').on('click', function(event){
-		event.preventDefault();
-		$form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-	});
+	// //REMOVE THIS - it's just to show error messages
+	// $form_login.find('input[type="submit"]').on('click', function(event){
+	// 	event.preventDefault();
+	// 	$form_login.find('input[type="text"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+	// });
+	// $form_signup.find('input[type="submit"]').on('click', function(event){
+	// 	event.preventDefault();
+	// 	$form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+	// });
 
 
 	//IE9 placeholder fallback

@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
 from . import main
-from ..auth.forms import LoginForm
+from ..auth.forms import LoginForm, SignUpForm, RegistrationForm
 from .forms import FindClassForm,TutorForm
 from flask.ext.mail import Message
 from .. import mail
@@ -10,19 +10,21 @@ from ..email import send_email, send_mandrill
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
-	form = LoginForm()
-	return render_template('index.html', form=form)
+	loginForm = LoginForm()
+	signUpForm = SignUpForm()
+	registerForm = RegistrationForm()
+	return render_template('index.html', signUpForm=signUpForm,loginForm=loginForm,registerForm=registerForm)
 
 @main.route('/signedup', methods=['GET', 'POST'])
 def signedup():
-	form = LoginForm()
-	return render_template('index2.html', form=form)
+	loginForm = LoginForm()
+	return render_template('index2.html', loginForm=loginForm)
 
 
 @main.route('/profile', methods=['GET', 'POST'])
 def profile():
-	form = FindClassForm()
-	return render_template('profile.html', form=form)
+	findClassForm = FindClassForm()
+	return render_template('profile.html', findClassForm=findClassForm)
 
 @main.route('/tutors', methods=['GET', 'POST'])
 def tutors():

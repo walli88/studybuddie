@@ -1,30 +1,64 @@
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, flash
 from . import auth
-from .forms import LoginForm
+from .forms import LoginForm, SignUpForm, RegistrationForm
 from ..models import User
 from .. import mail
 from app import db
 from flask.ext.mail import Message
 from ..email import send_email, send_mandrill
+from flask.ext.login import login_user, logout_user, login_required, \
+    current_user
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
-	form = LoginForm()
+	form = RegistrationForm()
 	user = User(email=form.email.data,
-					password_hash=form.password.data)
-
+				password=form.password.data,
+				username=form.username.data)
 	if user is not None and form.email.data:
 		userDb = User.query.filter_by(email=form.email.data).first()
-		# if userDb is not None:
-			#print "userDb something different" + ":" + userDb.email
 		if userDb is None:
 			db.session.add(user)
 			db.session.commit()
-		#send_email(user.email,"Welcome to Studybuddie", "email")
 		send_mandrill(user.email, "Welcome to Studybuddie", 'WelcomeEmail')
 	return redirect(url_for('main.signedup'))
+
+@auth.route('/signup', methods=['GET', 'POST'])
+def signup():
+	form = SignUpForm()
+	user = User(email=signUpForm.email.data,
+					password=signUpForm.password.data)
+	if user is not None and signUpForm.email.data:
+		userDb = User.query.filter_by(email=signUpForm.email.data).first()
+		if userDb is None:
+			db.session.add(user)
+			db.session.commit()
+		send_mandrill(user.email, "Welcome to Studybuddie", 'WelcomeEmail')
+	return redirect(url_for('main.signedup'))
+
 
 @auth.route('/registertutor', methods=['GET', 'POST'])
 def registertutor():
 	form = LoginForm()
-	return redirect(url_for('main.tutorprofile', email=form.email.data	))
+	user = User(email=form.email.data)
+	return redirect(url_for('main.tutorprofile', email=form.email.data))
+
+@auth.route('/login', methods=['GET', 'POST'])
+def login():
+	form = LoginForm()
+	print "login0"
+	print form.errors
+	if form.validate():
+		print "valid"
+	print form.errors
+	if form.validate_on_submit():
+		print "login1"
+		user = User.query.filter_by(email=form.email.data).first()
+		if user is not None and user.verify_password(form.password.data):
+			login_user(user, form.remember_me.data)
+			print "login2"
+			return redirect(url_for('main.profile'))
+		# flash('Invalid username or password.')
+		return render_template('auth/login.html', form=form)
+	#
+	return redirect(url_for('main.profile'))
