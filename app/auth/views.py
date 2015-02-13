@@ -58,6 +58,6 @@ def login():
 			print "login2"
 			return redirect(url_for('main.profile'))
 		# flash('Invalid username or password.')
-		return render_template('auth/login.html', form=form)
+		return redirect(url_for('main.profile'))
 	#
-	return redirect(url_for('main.profile'))
+	return render_template('auth/login.html', form=form)
