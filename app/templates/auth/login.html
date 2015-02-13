@@ -2,10 +2,12 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block content %}
-<div class="page-header">
-    <h2>Login</h2>
-</div>
-<div class="col-md-4">
-    {{ wtf.quick_form(form) }}
+<div class="child">
+	<div class="page-header">
+	    <h2>Login</h2>
+	</div>
+	<div class="col-md-12">
+	    {{ wtf.quick_form(form) }}
+	</div>
 </div>
 {% endblock %}

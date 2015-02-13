@@ -10,6 +10,17 @@ html {
     height: 100%;
 }
 
+.child {
+  width: 300px;
+  height: 100px;
+  padding: 20px;
+
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  /*margin: -70px 0 0 -170px;*/
+}
+
 body,
 h1{    font-family: 'Bitter', serif;
 },

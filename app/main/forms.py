@@ -17,6 +17,13 @@ class FindClassForm(Form):
     needHelp = StringField('What do you need help in?')
     howLongSession = StringField('How long would this session take?')
 
+class StudentForm(Form):
+    className = StringField('Class', validators=[Length(0, 64)])
+    professor = StringField('Professor', validators=[Length(0, 64)])
+    phoneNumber = StringField('Phone Number', validators=[Length(0, 64)])
+    needHelp = StringField('What do you need help in?')
+    howLongSession = StringField('How long would this session take?')
+
 class TutorForm(Form):
     fullName = StringField('Full Name', validators=[Required(), Length(1, 64)])
     email = StringField('Email', validators=[Required(), Length(1, 64), Email()])
@@ -29,7 +36,6 @@ class TutorForm(Form):
     phonenumber = StringField('Phone',default='(Optional)', validators=[validatePhone])
     relexp = TextAreaField('Relevant Experience', default='(Optional)',validators=[Length(0,500)])
     submit = SubmitField()
-
 
 class NameForm(Form):
     name = StringField('What is your name?', validators=[Required()])

@@ -25,7 +25,7 @@ def signedup():
 @main.route('/profile', methods=['GET', 'POST'])
 def profile():
 	findClassForm = FindClassForm()
-	return render_template('profile.html', findClassForm=findClassForm)
+	return render_template('profile.html', findClassForm=findClassForm, hideLogin=True)
 
 @main.route('/tutors', methods=['GET', 'POST'])
 def tutors():

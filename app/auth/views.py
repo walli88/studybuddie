@@ -23,7 +23,7 @@ def register():
 				db.session.commit()
 			send_mandrill(user.email, "Welcome to Studybuddie", 'WelcomeEmail')
 		return redirect(url_for('main.signedup'))
-	return render_template('auth/register.html', form=form)
+	return render_template('auth/register.html', form=form, hideLogin=True)
 
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -54,4 +54,4 @@ def login():
 			return redirect(url_for('main.profile'))
 		# flash('Invalid username or password.')
 		return redirect(url_for('main.profile'))
-	return render_template('auth/login.html', form=form)
+	return render_template('auth/login.html', form=form, hideLogin=True)
