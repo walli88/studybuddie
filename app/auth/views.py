@@ -25,9 +25,8 @@ def register():
 
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
-	form = SignUpForm()
-	user = User(email=signUpForm.email.data,
-					password=signUpForm.password.data)
+	signUpForm = SignUpForm()
+	user = User(email=signUpForm.email.data)
 	if user is not None and signUpForm.email.data:
 		userDb = User.query.filter_by(email=signUpForm.email.data).first()
 		if userDb is None:

@@ -33,6 +33,7 @@
                     </div>
                     <div class="row">
                         <form class="form-lead-capture" method="POST" action="auth/registertutor">
+                        {{ form.hidden_tag() }}
                             <label class="email-capture">
                             {{ form.email(placeholder="        Enter your email address") }}
                             {{form.submit(_class="button button-navy input-lead-gen", value="Be a StudyBuddie")}}
