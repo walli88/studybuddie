@@ -12,16 +12,18 @@ from flask.ext.login import login_user, logout_user, login_required, \
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
 	form = RegistrationForm()
-	user = User(email=form.email.data,
-				password=form.password.data,
-				username=form.username.data)
-	if user is not None and form.email.data:
-		userDb = User.query.filter_by(email=form.email.data).first()
-		if userDb is None:
-			db.session.add(user)
-			db.session.commit()
-		send_mandrill(user.email, "Welcome to Studybuddie", 'WelcomeEmail')
-	return redirect(url_for('main.signedup'))
+	if form.validate_on_submit():
+		user = User(email=form.email.data,
+					password=form.password.data,
+					username=form.username.data)
+		if user is not None and form.email.data:
+			userDb = User.query.filter_by(email=form.email.data).first()
+			if userDb is None:
+				db.session.add(user)
+				db.session.commit()
+			send_mandrill(user.email, "Welcome to Studybuddie", 'WelcomeEmail')
+		return redirect(url_for('main.signedup'))
+	return render_template('auth/register.html', form=form)
 
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -45,19 +47,11 @@ def registertutor():
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
 	form = LoginForm()
-	print "login0"
-	print form.errors
-	if form.validate():
-		print "valid"
-	print form.errors
 	if form.validate_on_submit():
-		print "login1"
 		user = User.query.filter_by(email=form.email.data).first()
 		if user is not None and user.verify_password(form.password.data):
 			login_user(user, form.remember_me.data)
-			print "login2"
 			return redirect(url_for('main.profile'))
 		# flash('Invalid username or password.')
 		return redirect(url_for('main.profile'))
-	#
 	return render_template('auth/login.html', form=form)
