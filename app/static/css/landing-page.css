@@ -149,6 +149,8 @@ h6 {
 .margin-lr{
     margin-right:10px;
     margin-left:10px;
+    margin-bottom:10px;
+    margin-top:10px;
 }
 
 @media(max-width:767px) {
@@ -302,6 +304,7 @@ h6 {
     background-color: #00a8c6;
 }
 
+
 .content-section-b {
     padding: 50px 0;
 
@@ -310,6 +313,7 @@ h6 {
     border-bottom: 1px solid #e7e7e7;
     */
 }
+
 
 .section-heading {
     margin-bottom: 10px;
