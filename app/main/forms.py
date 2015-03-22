@@ -16,6 +16,7 @@ class FindClassForm(Form):
     phoneNumber = StringField('Phone Number', validators=[Length(0, 64)])
     needHelp = StringField('What do you need help in?')
     howLongSession = StringField('How long would this session take?')
+    submit = SubmitField()
 
 class StudentForm(Form):
     className = StringField('Class', validators=[Length(0, 64)])
@@ -23,6 +24,7 @@ class StudentForm(Form):
     phoneNumber = StringField('Phone Number', validators=[Length(0, 64)])
     needHelp = StringField('What do you need help in?')
     howLongSession = StringField('How long would this session take?')
+    submit = SubmitField()
 
 class TutorForm(Form):
     fullName = StringField('Full Name', validators=[Required(), Length(1, 64)])

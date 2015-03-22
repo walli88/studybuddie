@@ -44,6 +44,12 @@ def registertutor():
 	user = User(email=form.email.data)
 	return redirect(url_for('main.tutorprofile', email=form.email.data))
 
+@auth.route('/registerstudent', methods=['GET', 'POST'])
+def registerstudent():
+	form = LoginForm()
+	user = User(email=form.email.data)
+	return redirect(url_for('main.tutorprofile', email=form.email.data))
+
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
 	form = LoginForm()

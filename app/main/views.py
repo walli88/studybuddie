@@ -15,6 +15,11 @@ def index():
 	registerForm = RegistrationForm()
 	return render_template('index.html', signUpForm=signUpForm,loginForm=loginForm,registerForm=registerForm)
 
+@main.route('/aboutus', methods=['GET', 'POST'])
+def aboutus():
+	return render_template('aboutus.html')
+
+
 @main.route('/signedup', methods=['GET', 'POST'])
 def signedup():
 	loginForm = LoginForm()
@@ -37,7 +42,8 @@ def tutorprofile():
 	form = TutorForm()
 	if request.method == 'GET' and request.args.get('email') is not None:
 		form.email.data=request.args.get('email')
-	send_mandrill(form.email.data, "Welcome to Studybuddie", 'TutorWelcomeEmail')
+		send_mandrill(form.email.data, "Welcome to Studybuddie", 'TutorWelcomeEmail')
+
 	if form.validate_on_submit():
 		form = TutorForm()
 		tutor = Tutor(fullname = form.fullName.data, email=form.email.data
