@@ -11,11 +11,13 @@ def validatePhone(form, field):
 
 
 class FindClassForm(Form):
-    className = StringField('Class', validators=[Length(0, 64)])
-    professor = StringField('Professor', validators=[Length(0, 64)])
-    phoneNumber = StringField('Phone Number', validators=[Length(0, 64)])
-    needHelp = StringField('What do you need help in?')
-    howLongSession = StringField('How long would this session take?')
+    studentName = StringField('Name', validators=[Required(message="Name is required"),Length(0,64)])
+    schoolName  = SelectField(u'School', default='none', choices=[('none', 'Please select your school'), ('colm', 'Columbia University'), ('nyu', 'New York University')
+        , ('other', 'Other')])
+    yearName = SelectField(u'Year', default='none', choices=[('none', 'Please select your year'), ('fr', 'Freshman'), ('soph', 'Sophmore'), ('jr','Junior',),('sr','Senior'),('oth','Grad Student')
+        , ('other', 'Other')])
+    phoneNumber = StringField('Phone Number: StudyBuddies call/text when they arrive', validators=[Length(0, 64)])
+    majorName = StringField('Major')
     submit = SubmitField()
 
 class StudentForm(Form):

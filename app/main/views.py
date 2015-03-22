@@ -30,6 +30,10 @@ def signedup():
 @main.route('/profile', methods=['GET', 'POST'])
 def profile():
 	findClassForm = FindClassForm()
+	findClassForm.validate_on_submit()
+
+
+
 	return render_template('profile.html', findClassForm=findClassForm, hideLogin=True)
 
 @main.route('/tutors', methods=['GET', 'POST'])
@@ -57,3 +61,5 @@ def tutorprofile():
 				db.session.commit()
 				flash('Thanks for signing up!')
 	return render_template('tutorprofile.html', form=form, hideLogin=True)
+
+

@@ -22,7 +22,7 @@ def register():
 				db.session.add(user)
 				db.session.commit()
 			send_mandrill(user.email, "Welcome to Studybuddie", 'WelcomeEmail')
-		return redirect(url_for('main.signedup'))
+		return redirect(url_for('main.profile'))
 	return render_template('auth/register.html', form=form, hideLogin=True)
 
 @auth.route('/signup', methods=['GET', 'POST'])
@@ -54,6 +54,7 @@ def registerstudent():
 def login():
 	form = LoginForm()
 	if form.validate_on_submit():
+		print "this is what i'm printing" + form.email.data
 		user = User.query.filter_by(email=form.email.data).first()
 		if user is not None and user.verify_password(form.password.data):
 			login_user(user, form.remember_me.data)
