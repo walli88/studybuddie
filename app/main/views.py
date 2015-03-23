@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
 from . import main
 from ..auth.forms import LoginForm, SignUpForm, RegistrationForm
-from .forms import FindClassForm,TutorForm
+from .forms import FindClassForm, TutorForm, GetHelpForm
 from flask.ext.mail import Message
 from .. import mail
 from ..models import User, Tutor
@@ -25,6 +25,13 @@ def signedup():
 	loginForm = LoginForm()
 	signUpForm = SignUpForm()
 	return render_template('index2.html', loginForm=loginForm,signUpForm=signUpForm)
+
+@main.route('/gethelp', methods=['GET', 'POST'])
+def gethelp():
+	getHelpForm = GetHelpForm()
+	if getHelpForm.validate_on_submit():
+		print "valid"
+	return render_template('gethelp.html', getHelpForm=getHelpForm, hideLogin=True)
 
 
 @main.route('/profile', methods=['GET', 'POST'])

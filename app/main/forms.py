@@ -1,14 +1,25 @@
 from flask.ext.wtf import Form
-from wtforms import StringField, TextAreaField, BooleanField, SelectField,SubmitField, IntegerField, DecimalField
+from wtforms import StringField, TextAreaField, BooleanField, SelectField,SubmitField, IntegerField, DecimalField, DateField, DateTimeField
 from wtforms.validators import Required, Length, Email, Regexp, NumberRange, Optional
 from wtforms import ValidationError
 from ..models import User
 import re
+import datetime as dt
 
 def validatePhone(form, field):
     if field.data != "(Optional)" and (len(field.data) !=10 or re.match("^[0-9]*$",field.data) is None):
         raise ValidationError("Telephone should be 10 digits (no spaces)")
 
+
+class GetHelpForm(Form):
+    className = StringField('Class', validators=[Required(), Length(0, 64)])
+    professor = StringField('Professor', validators=[Required(), Length(0, 64)])
+    location = StringField('Where do you want the study session to take place?', validators=[Required(), Length(0, 64)])
+    needHelp = StringField('What do you need help in?',default='(Optional)')
+    howLongSession = SelectField(u'Minutes', default = '30', choices=[('30', '30 min'),('60', '60 min'), ('90', '90 min'),('120', '120 min')],validators=[Required()])
+    whenStartDay = DateField('Start date (i.e 3/16/2015)?',format='%m/%d/%Y', default=dt.datetime.now)
+    whenStartTime = DateTimeField('Start time (00:00-23:59)?',format='%H:%M', default= dt.datetime.now() + dt.timedelta(hours=1))
+    submit = SubmitField()
 
 class FindClassForm(Form):
     studentName = StringField('Name', validators=[Required(message="Name is required"),Length(0,64)])
