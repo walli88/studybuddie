@@ -22,7 +22,7 @@ html {
 }
 
 body,
-h1{    font-family: 'Bitter', serif;
+h1{    font-family: 'Lato', serif;
 },
 h2,
 h3,
@@ -60,10 +60,10 @@ h6 {
 .intro-header-main {
     padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
     padding-bottom: 50px;
-    height:550px;
+    height:700px;
     text-align: center;
     color: #f8f8f8;
-    background: url("https://s3.amazonaws.com/nameless-harbor-2037/img/testbkgd.jpg") no-repeat top center;
+    background: url("https://s3.amazonaws.com/nameless-harbor-2037/img/background.jpg") no-repeat top center;
     border-top: 30px solid transparent;
     background-size: cover;
 }
@@ -78,7 +78,7 @@ h6 {
     margin: 0;
     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
     font-size: 5em;
-    font-family: 'Lobster'
+    font-family: 'Lato'
 }
 
 .intro-divider {
@@ -318,19 +318,18 @@ h6 {
 .section-heading {
     margin-bottom: 10px;
     color:#c43533;
-    font-family: 'Bitter', serif;
+    font-family: 'Lato', serif;
 }
 
 .section-heading-light {
     margin-bottom: 10px;
     color:#3f3f3f;
-    font-family: 'Bitter', serif;
+    font-family: 'Lato', serif;
 }
 
 .section-subtitle {
-    font-family: "Bitter";
+    font-family: "Lato";
     margin-bottom: 10px;
-    font-style: italic;
     color:#ffffff;
     text-shadow: 0.1em 0.1em 0.2em black;
 }
