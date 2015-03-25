@@ -60,7 +60,7 @@ h6 {
 .intro-header-main {
     padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
     padding-bottom: 50px;
-    height:700px;
+    height:675px;
     text-align: center;
     color: #f8f8f8;
     background: url("https://s3.amazonaws.com/nameless-harbor-2037/img/background.jpg") no-repeat top center;
