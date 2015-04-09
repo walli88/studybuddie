@@ -6,8 +6,7 @@ from .. import mail
 from app import db
 from flask.ext.mail import Message
 from ..email import send_email, send_mandrill
-from flask.ext.login import login_user, logout_user, login_required, \
-    current_user
+from flask.ext.login import login_user, logout_user, login_required, current_user
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():

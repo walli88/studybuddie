@@ -123,7 +123,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                                
+
                     <div class="intro-message">
                          <img class="img-responsive center-block" src="https://s3.amazonaws.com/nameless-harbor-2037/img/Logo.png" alt="">
                           <h3 class="section-subtitle">Save Time, Study Smarter</h3>
@@ -132,7 +132,7 @@
                      </div>
                  </div>
              </div>
-
+             {% if not current_user.is_authenticated()%}
              <div class="row">
                         <form class="form-lead-capture" method="POST" action="auth/signup">
 
@@ -149,6 +149,7 @@
                        <!-- <input type="submit" class="button button-navy input-lead-gen" value="Get Started"></input> -->
                         </form>
             </div>
+            {% endif %}
 
 
 
