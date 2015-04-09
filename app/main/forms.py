@@ -13,7 +13,7 @@ def validatePhone(form, field):
 
 class GetHelpForm(Form):
     className = StringField('Class', validators=[Required(), Length(0, 64)])
-    professor = StringField('Professor', validators=[Required(), Length(0, 64)])
+    classNumber = IntegerField('Class Number', validators=[Required()])
     location = StringField('Where do you want the study session to take place?', validators=[Required(), Length(0, 64)])
     needHelp = StringField('What do you need help in?',default='(Optional)')
     howLongSession = SelectField(u'Minutes', default = '30', choices=[('30', '30 min'),('60', '60 min'), ('90', '90 min'),('120', '120 min')],validators=[Required()])

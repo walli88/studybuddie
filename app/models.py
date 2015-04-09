@@ -8,6 +8,8 @@ class User(UserMixin,db.Model):
 	email = db.Column(db.String(64), unique=True, index=True)
 	password_hash = db.Column(db.String(128))
 	username = db.Column(db.String(64), unique=True, index=True)
+	created_on = db.Column(db.DateTime, default=db.func.now())
+	updated_on = db.Column(db.DateTime, default=db.func.now(), onupdate=db.func.now())
 
 	@property
 	def password(self):
@@ -28,7 +30,6 @@ class Tutor(db.Model):
 	__tablename__ = 'tutor'
 	id = db.Column(db.Integer, primary_key=True)
 	fullname = db.Column(db.String(64))
-	email = db.Column(db.String(64), unique=True, index=True)
 	school = db.Column(db.String(64))
 	grade = db.Column(db.String(64))
 	major = db.Column(db.String(64))
@@ -38,17 +39,23 @@ class Tutor(db.Model):
 	created_on = db.Column(db.DateTime, default=db.func.now())
 	updated_on = db.Column(db.DateTime, default=db.func.now(), onupdate=db.func.now())
 
+class Student(db.Model):
+	__tablename__ = 'student'
+	id = db.Column(db.Integer, primary_key=True)
+	fullname = db.Column(db.String(64))
+	school = db.Column(db.String(64))
+	grade = db.Column(db.String(64))
+	major = db.Column(db.String(64))
 
 class GetHelp(db.Model):
 	__tablename__ = 'get_help'
 	id = db.Column(db.Integer, primary_key=True)
-	fullname = db.Column(db.String(64))
-	email = db.Column(db.String(64), unique=True, index=True)
-	school = db.Column(db.String(64))
-	grade = db.Column(db.String(64))
-	major = db.Column(db.String(64))
-	gpa = db.Column(db.Float)
-	phonenumber = db.Column(db.String(10))
-	relexp = db.Column(db.String(500))
+	student_id = db.Column(db.Integer, db.ForeignKey('student.id'))
+	class_name = db.Column(db.String(64))
+	class_number = db.Column(db.String(64), unique=True, index=True)
+	location = db.Column(db.String(64))
+	help_comment = db.Column(db.String(64))
+	duration = db.Column(db.String(64))
+	start_datetime = db.Column(db.DateTime)
+	start_time = db.Column(db.DateTime)
 	created_on = db.Column(db.DateTime, default=db.func.now())
-	updated_on = db.Column(db.DateTime, default=db.func.now(), onupdate=db.func.now())

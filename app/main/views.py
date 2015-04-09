@@ -7,6 +7,8 @@ from .. import mail
 from ..models import User, Tutor
 from app import db
 from ..email import send_email, send_mandrill
+from flask.ext.login import current_user
+
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
@@ -30,7 +32,9 @@ def signedup():
 def gethelp():
 	getHelpForm = GetHelpForm()
 	if getHelpForm.validate_on_submit():
-		print "valid"
+		print current_user
+		print current_user.id
+		# getHelp = GetHelp(st)
 	return render_template('gethelp.html', getHelpForm=getHelpForm, hideLogin=True)
 
 
@@ -38,9 +42,6 @@ def gethelp():
 def profile():
 	findClassForm = FindClassForm()
 	findClassForm.validate_on_submit()
-
-
-
 	return render_template('profile.html', findClassForm=findClassForm, hideLogin=True)
 
 @main.route('/tutors', methods=['GET', 'POST'])
