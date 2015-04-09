@@ -34,7 +34,7 @@ def signup():
 			db.session.add(user)
 			db.session.commit()
 		send_mandrill(user.email, "Welcome to Studybuddie", 'WelcomeEmail')
-	return redirect(url_for('main.signedup'))
+	return redirect(url_for('auth.register'))
 
 
 @auth.route('/registertutor', methods=['GET', 'POST'])
