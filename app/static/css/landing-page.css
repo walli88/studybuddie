@@ -793,7 +793,7 @@ footer {
     transition: box-shadow 0.25s ease; }
     .form-lead-capture input:focus {
       background-color: rgba(255, 255, 255, 0.7); }
-    .form-lead-capture input::-webkit-input-placeholder {
+    .form-lead-capture input::-webkit-input-placeholder="Optional" {
       color: #262626;
       padding-left: 0; }
     .form-lead-capture input:focus::-webkit-input-placeholder {
