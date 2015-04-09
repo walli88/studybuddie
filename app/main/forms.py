@@ -28,7 +28,7 @@ class FindClassForm(Form):
     yearName = SelectField(u'Year', default='none', choices=[('none', 'Please select your year'), ('fr', 'Freshman'), ('soph', 'Sophmore'), ('jr','Junior',),('sr','Senior'),('oth','Grad Student')
         , ('other', 'Other')])
     phoneNumber = StringField('Phone Number: StudyBuddies call/text when they arrive', validators=[Length(0, 64)])
-    majorName = StringField('Major')
+    majorName = StringField('Major', default='optional')
     submit = SubmitField()
 
 class StudentForm(Form):

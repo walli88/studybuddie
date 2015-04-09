@@ -68,6 +68,18 @@ h6 {
     background-size: cover;
 }
 
+.intro-header-main-tutors {
+    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 50px;
+    height:675px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url("https://s3.amazonaws.com/nameless-harbor-2037/img/testbkgd.jpg") no-repeat top center;
+    border-top: 30px solid transparent;
+    background-size: cover;
+}
+
+
 .intro-message {
     position: relative;
     padding-top: 3%;
