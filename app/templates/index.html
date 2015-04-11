@@ -107,14 +107,6 @@
 
     <div class="intro-header-main">
 
-        {% for message in get_flashed_messages() %}
-        <div class="col-lg-4 vcenter">
-            <div class="alert alert-warning">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            {{ message }}
-            </div>
-        </div>
-        {% endfor %}
         <div class="container">
 
             <div class="row">
@@ -128,12 +120,8 @@
                      </div>
                  </div>
              </div>
-             {% if not current_user.is_authenticated()%}
              <div class="row">
                         <form class="form-lead-capture" method="POST" action="auth/signup">
-
-
-
                         <label class="email-capture">
                         {{ loginForm.hidden_tag() }}
                         {{ loginForm.email(placeholder="        Enter your email address") }}
@@ -141,10 +129,6 @@
                        <!-- <input type="submit" class="button button-navy input-lead-gen" value="Get Started"></input> -->
                         </form>
             </div>
-            {% endif %}
-
-
-
         </div>
         <!-- /.container -->
 

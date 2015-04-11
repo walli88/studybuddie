@@ -10,6 +10,7 @@ from ..email import send_email, send_mandrill
 from flask.ext.login import current_user, login_required
 
 @main.route('/dashboard', methods=['GET','POST'])
+@login_required
 def dashboard():
 	student = Student.query.filter_by(user_id=current_user.id).first()
 	schoolMap = {'colm':'Columbia University', 'nyu':'New York University'}
@@ -20,7 +21,11 @@ def index():
 	loginForm = LoginForm()
 	signUpForm = SignUpForm()
 	registerForm = RegistrationForm()
-	return render_template('index.html', signUpForm=signUpForm,loginForm=loginForm,registerForm=registerForm)
+	if current_user.is_authenticated():
+		return redirect(url_for('main.dashboard'))
+		# return render_template('index.html', signUpForm=signUpForm,loginForm=loginForm,registerForm=registerForm)
+	else:
+		return render_template('index.html', signUpForm=signUpForm,loginForm=loginForm,registerForm=registerForm)
 
 @main.route('/aboutus', methods=['GET', 'POST'])
 def aboutus():
