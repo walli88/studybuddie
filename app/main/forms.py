@@ -15,7 +15,7 @@ class GetHelpForm(Form):
     className = StringField('Class', validators=[Required(), Length(0, 64)])
     professor = StringField('Professor', validators=[Required(), Length(0, 64)])
     location = StringField('Where do you want the study session to take place?', validators=[Required(), Length(0, 64)])
-    needHelp = StringField('What do you need help in?',placeholder='(Optional)')
+    needHelp = StringField('What do you need help in?')
     howLongSession = SelectField(u'Minutes', default = '30', choices=[('30', '30 min'),('60', '60 min'), ('90', '90 min'),('120', '120 min')],validators=[Required()])
     whenStartDay = DateField('Start date (i.e 3/16/2015)?',format='%m/%d/%Y', default=dt.datetime.now)
     whenStartTime = DateTimeField('Start time (00:00-23:59)?',format='%H:%M', default= dt.datetime.now() + dt.timedelta(hours=1))
@@ -33,7 +33,7 @@ class StudentForm(Form):
 
 
 class TutorForm(Form):
-    fullName = StringField('Full Name', validators=[Required(), Length(1, 64)], placeholder="haha")
+    fullName = StringField('Full Name', validators=[Required(), Length(1, 64)])
     email = StringField('Email', validators=[Required(), Length(1, 64), Email()])
     school  = SelectField(u'School', default='none', choices=[('none', 'Please select your school'), ('colm', 'Columbia University'), ('fordham', 'Fordham University'), ('hunter', 'Hunter University'), ('nyu', 'New York University'), ('pace', 'Pace University'), ('cunyq', 'Queens College, CUNY')
         , ('other', 'Other')])

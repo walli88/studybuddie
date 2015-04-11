@@ -7,7 +7,22 @@
 		<p class="section-heading-light">Step 1: Fill out the form below.</p>
 		<p class="section-heading-light">Step 2: Submit payment.</p>
 		<p class="section-heading-light">Step 3: Meet your Studybuddie.</p>
-		    {{ wtf.quick_form(getHelpForm) }}
+		<div class="row text-center row-centered">
+
+			<div class="col-md-3 vcenter col-centered-main">
+
+				<form class="form" method="post" role="form">
+				{{ wtf.form_field(getHelpForm.className) }}
+				{{ wtf.form_field(getHelpForm.professor) }}
+				{{ wtf.form_field(getHelpForm.location) }}
+				{{ wtf.form_field(getHelpForm.needHelp, placeholder='(Optional)') }}
+				{{ wtf.form_field(getHelpForm.howLongSession, placeholder="Optional") }}
+				{{ wtf.form_field(getHelpForm.whenStartDay) }}
+				{{ wtf.form_field(getHelpForm.whenStartTime) }}
+				{{ wtf.form_field(getHelpForm.submit) }}
+				</form>
+			</div>
+		</div>
 		</div>
 	</div>
 </div>
