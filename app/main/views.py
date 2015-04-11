@@ -1,10 +1,10 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
 from . import main
 from ..auth.forms import LoginForm, SignUpForm, RegistrationForm
-from .forms import FindClassForm, TutorForm, GetHelpForm
+from .forms import StudentForm, TutorForm, GetHelpForm
 from flask.ext.mail import Message
 from .. import mail
-from ..models import User, Tutor
+from ..models import User, Tutor, Student
 from app import db
 from ..email import send_email, send_mandrill
 from flask.ext.login import current_user
@@ -40,9 +40,14 @@ def gethelp():
 
 @main.route('/profile', methods=['GET', 'POST'])
 def profile():
-	findClassForm = FindClassForm()
-	findClassForm.validate_on_submit()
-	return render_template('profile.html', findClassForm=findClassForm, hideLogin=True)
+	studentForm = StudentForm()
+	if studentForm.validate_on_submit():
+		student = Student(fullname=studentForm.fullName,school=studentForm.schoolName,
+					grade=studentForm.grade,phonenumber=studentForm.phoneNumber,major=studentForm.major,user_id=current_user.id)
+		if student is not None:
+			db.session.add(student)
+			db.session.commit()
+	return render_template('profile.html', studentForm=studentForm, hideLogin=True)
 
 @main.route('/tutors', methods=['GET', 'POST'])
 def tutors():

@@ -29,6 +29,7 @@ def load_user(user_id):
 class Tutor(db.Model):
 	__tablename__ = 'tutor'
 	id = db.Column(db.Integer, primary_key=True)
+	user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 	fullname = db.Column(db.String(64))
 	school = db.Column(db.String(64))
 	grade = db.Column(db.String(64))
@@ -42,9 +43,11 @@ class Tutor(db.Model):
 class Student(db.Model):
 	__tablename__ = 'student'
 	id = db.Column(db.Integer, primary_key=True)
+	user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 	fullname = db.Column(db.String(64))
 	school = db.Column(db.String(64))
 	grade = db.Column(db.String(64))
+	phonenumber = db.Column(db.String(10))
 	major = db.Column(db.String(64))
 
 class GetHelp(db.Model):

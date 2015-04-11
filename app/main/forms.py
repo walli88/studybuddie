@@ -21,26 +21,19 @@ class GetHelpForm(Form):
     whenStartTime = DateTimeField('Start time (00:00-23:59)?',format='%H:%M', default= dt.datetime.now() + dt.timedelta(hours=1))
     submit = SubmitField()
 
-class FindClassForm(Form):
-    studentName = StringField('Name', validators=[Required(message="Name is required"),Length(0,64)])
+class StudentForm(Form):
+    fullName = StringField('Name', validators=[Required(message="Name is required"),Length(0,64)])
     schoolName  = SelectField(u'School', default='none', choices=[('none', 'Please select your school'), ('colm', 'Columbia University'), ('nyu', 'New York University')
         , ('other', 'Other')])
-    yearName = SelectField(u'Year', default='none', choices=[('none', 'Please select your year'), ('fr', 'Freshman'), ('soph', 'Sophmore'), ('jr','Junior',),('sr','Senior'),('oth','Grad Student')
+    grade = SelectField(u'Year', default='none', choices=[('none', 'Please select your year'), ('fr', 'Freshman'), ('soph', 'Sophmore'), ('jr','Junior',),('sr','Senior'),('oth','Grad Student')
         , ('other', 'Other')])
-    phoneNumber = StringField('Phone Number: StudyBuddies call/text when they arrive', validators=[Length(0, 64)])
-    majorName = StringField('Major', default='optional')
+    phoneNumber = StringField('Phone Number', validators=[Length(0, 64)])
+    major = StringField('Major')
     submit = SubmitField()
 
-class StudentForm(Form):
-    className = StringField('Class', validators=[Length(0, 64)])
-    professor = StringField('Professor', validators=[Length(0, 64)])
-    phoneNumber = StringField('Phone Number', validators=[Length(0, 64)])
-    needHelp = StringField('What do you need help in?')
-    howLongSession = StringField('How long would this session take?')
-    submit = SubmitField()
 
 class TutorForm(Form):
-    fullName = StringField('Full Name', validators=[Required(), Length(1, 64)])
+    fullName = StringField('Full Name', validators=[Required(), Length(1, 64)], placeholder="haha")
     email = StringField('Email', validators=[Required(), Length(1, 64), Email()])
     school  = SelectField(u'School', default='none', choices=[('none', 'Please select your school'), ('colm', 'Columbia University'), ('fordham', 'Fordham University'), ('hunter', 'Hunter University'), ('nyu', 'New York University'), ('pace', 'Pace University'), ('cunyq', 'Queens College, CUNY')
         , ('other', 'Other')])

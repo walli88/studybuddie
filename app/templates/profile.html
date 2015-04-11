@@ -9,7 +9,15 @@
 	<div class="row text-center row-centered">
 
 		<div class="col-md-3 vcenter col-centered-main">
-		    {{ wtf.quick_form(findClassForm) }}
+
+			<form class="form" method="post" role="form">
+			{{ wtf.form_field(studentForm.fullName) }}
+			{{ wtf.form_field(studentForm.schoolName) }}
+			{{ wtf.form_field(studentForm.grade) }}
+			{{ wtf.form_field(studentForm.phoneNumber) }}
+			{{ wtf.form_field(studentForm.major, placeholder="Optional") }}
+			{{ wtf.form_field(studentForm.submit) }}
+			</form>
 		</div>
 	</div>
 </div>
