@@ -60,6 +60,14 @@ def login():
 		if user is not None and user.verify_password(form.password.data):
 			login_user(user, form.remember_me.data)
 			return redirect(url_for('main.profile'))
-		# flash('Invalid username or password.')
-		return redirect(url_for('main.profile'))
+		print "invalid user"
+		flash('Invalid username or password.')
+		return redirect(url_for('auth.login'))
 	return render_template('auth/login.html', form=form, hideLogin=True)
+
+@auth.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash('You have been logged out.')
+    return redirect(url_for('main.index'))
