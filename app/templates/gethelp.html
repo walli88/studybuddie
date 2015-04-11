@@ -3,14 +3,12 @@
 <script src="/static/js/moment.min.js"></script>
 <div class="content-section-b">
 	<div class="row text-center row-centered">
-		<div class="col-md-3 vcenter col-centered-main">
+
 		<p class="section-heading-light">Step 1: Fill out the form below.</p>
 		<p class="section-heading-light">Step 2: Submit payment.</p>
 		<p class="section-heading-light">Step 3: Meet your Studybuddie.</p>
 		<div class="row text-center row-centered">
-
 			<div class="col-md-3 vcenter col-centered-main">
-
 				<form class="form" method="post" role="form">
 				{{ wtf.form_field(getHelpForm.className) }}
 				{{ wtf.form_field(getHelpForm.professor) }}
@@ -21,8 +19,7 @@
 				{{ wtf.form_field(getHelpForm.whenStartTime) }}
 				{{ wtf.form_field(getHelpForm.submit) }}
 				</form>
-			</div>
-		</div>
+			<div class="col-md-3 vcenter col-centered-main">
 		</div>
 	</div>
 </div>

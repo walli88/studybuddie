@@ -56,23 +56,23 @@ def tutors():
 
 @main.route('/tutorprofile', methods=['GET', 'POST'])
 def tutorprofile():
-	form = TutorForm()
+	tutorForm = TutorForm()
 	if request.method == 'GET' and request.args.get('email') is not None:
-		form.email.data=request.args.get('email')
+		tutorForm.email.data=request.args.get('email')
 		send_mandrill(form.email.data, "Welcome to Studybuddie", 'TutorWelcomeEmail')
 
-	if form.validate_on_submit():
-		form = TutorForm()
-		tutor = Tutor(fullname = form.fullName.data, email=form.email.data
-			,school=form.school.data, grade=form.grade.data
-			,major=form.major.data,gpa=float(form.gpa.data) if form.gpa.data != "(Optional)" else None
-			,phonenumber=form.phonenumber.data,relexp=form.relexp.data)
-		if tutor is not None and form.email.data:
-			tutorDb = Tutor.query.filter_by(email=form.email.data).first()
+	if tutorForm.validate_on_submit():
+		tutorForm = TutorForm()
+		tutor = Tutor(fullname = tutorForm.fullName.data, email=tutorForm.email.data
+			,school=tutorForm.school.data, grade=tutorForm.grade.data
+			,major=tutorForm.major.data,gpa=float(tutorForm.gpa.data) if tutorForm.gpa.data != "(Optional)" else None
+			,phonenumber=tutorForm.phonenumber.data,relexp=tutorForm.relexp.data)
+		if tutor is not None and tutorForm.email.data:
+			tutorDb = Tutor.query.filter_by(email=tutorForm.email.data).first()
 			if tutorDb is None:
 				db.session.add(tutor)
 				db.session.commit()
 				flash('Thanks for signing up!')
-	return render_template('tutorprofile.html', form=form, hideLogin=True)
+	return render_template('tutorprofile.html', tutorForm=tutorForm, hideLogin=True)
 
 
