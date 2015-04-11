@@ -120,6 +120,10 @@ h6 {
 
 }
 
+.message {
+  padding-top:60px;
+}
+
 .thanks-font{
   text-shadow: 0.1em 0.1em 0.2em black;
   color:#ffffff;

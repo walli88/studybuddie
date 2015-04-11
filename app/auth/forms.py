@@ -8,7 +8,6 @@ from wtforms import ValidationError
 class RegistrationForm(Form):
     email = StringField('Email', validators=[Required(), Length(1, 64),
                                              Email()])
-
     password = PasswordField('Create Password', validators=[Required(),Length(5,64,message='Password must be 5 characters long')])
     submit = SubmitField('Register')
 

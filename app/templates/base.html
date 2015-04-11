@@ -13,57 +13,63 @@ StudyBuddie Tutoring
     <link href="//fonts.googleapis.com/css?family=Lobster:400" rel="stylesheet" type="text/css">
 	<link href='http://fonts.googleapis.com/css?family=Bitter:400,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    {% endblock %}-->
+    {% endblock %}
 {% endblock %}
 
 {% block navbar %}
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-		
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-<!-- 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button> -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 
-				<a href="/"><img src="https://s3.amazonaws.com/nameless-harbor-2037/img/GlassesWord.png" alt="" height = "50" padding-top= "1"></a>
+		<div class="navbar-header">
+			<a href="/"><img src="https://s3.amazonaws.com/nameless-harbor-2037/img/GlassesWord.png" alt="" height = "50" padding-top= "1"></a>
 
-			</div>
-            <div class="collapse navbar-collapse main-nav">
-                <ul class="nav navbar-nav navbar-right">
-                {% if not current_user.is_authenticated()%}
-					<li>
-						<a class="cd-signin" href="#0">Log in&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-					</li>
-					<li>
-						<a class="cd-signup" href="#0">Register</a>
-					</li>
-					{% endif %}
-                    <li>
-                        <a href="aboutus">About&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-                    </li>
-                    <li>
-                        <a href="tutors">Become a Tutor</a>
-                    </li>
-                </ul>
-            </div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<!--
-			<div class="collapse navbar-collapse main-nav" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
-				<li><a class="cd-signin" href="#0">Sign in</a></li>
-				<li><a class="cd-signup" href="#0">Sign up</a></li>
-				</ul>
-			</div>
-			-->
-			<!-- /.navbar-collapse -->
-		
-		<!-- /.container -->
-	</nav>
+		</div>
+        <div class="collapse navbar-collapse main-nav">
+            <ul class="nav navbar-nav navbar-right">
+				{% if not current_user.is_authenticated()%}
+				<li>
+					<a class="cd-signin" href="#0">Log in&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+				</li>
+				<li>
+					<a class="cd-signup" href="#0">Register</a>
+				</li>
+				{% else %}
+
+				<li>
+					<a href="auth/logout">Log out</a>
+				</li>
+				{% endif %}
+                <li>
+                    <a href="aboutus">About&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+                </li>
+                <li>
+                    <a href="tutors">Become a Tutor</a>
+                </li>
+            </ul>
+        </div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<!--
+		<div class="collapse navbar-collapse main-nav" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+			<li><a class="cd-signin" href="#0">Sign in</a></li>
+			<li><a class="cd-signup" href="#0">Sign up</a></li>
+			</ul>
+		</div>
+		-->
+		<!-- /.navbar-collapse -->
+
+	<!-- /.container -->
+</nav>
 {% endblock %}
 {% block content %}
+<div class="container message">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% block page_content %}{% endblock %}
+</div>
 {% endblock %}
 
 {% block scripts %}
