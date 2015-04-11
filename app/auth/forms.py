@@ -6,6 +6,7 @@ from wtforms import ValidationError
 
 
 class RegistrationForm(Form):
+    name = StringField('Name')
     email = StringField('Email', validators=[Required(), Length(1, 64),
                                              Email()])
 

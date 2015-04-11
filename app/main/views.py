@@ -9,6 +9,9 @@ from app import db
 from ..email import send_email, send_mandrill
 from flask.ext.login import current_user, login_required
 
+@main.route('/dashboard', methods=['GET','POST'])
+def dashboard():
+	return render_template('dashboard.html')
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
