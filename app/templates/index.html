@@ -7,7 +7,7 @@
         <div class="cd-user-modal-container"> <!-- this is the container wrapper -->
             <ul class="cd-switcher list-unstyled">
                 <li>
-                <a href="#0">Login in</a>
+                <a href="#0">Login</a>
                 </li>
                 <li>
                 <a href="#0">Register</a>
@@ -46,8 +46,6 @@
             <div id="cd-signup"> <!-- sign up form -->
                 <form class="cd-form" method="POST" action="auth/register">
                     {{ registerForm.hidden_tag() }}
-
-
                     <p class="fieldset">
                         <label class="image-replace cd-email" for="signup-email">E-mail</label>
                         {{ registerForm.email(class="full-width has-padding has-border", id="signup-email",placeholder="E-mail") }}

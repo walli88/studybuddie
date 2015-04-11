@@ -39,10 +39,10 @@ class TutorForm(Form):
         , ('other', 'Other')])
     grade = SelectField(u'Grade', default = 'none', choices=[('none', 'Please select your grade'),('fresh', 'Freshman'), ('soph', 'Sophmore'), ('junior', 'Junior'),('senior', 'Senior'),
         ('grad', 'Masters'),('phd', 'Ph.D'),('alum', 'Alumni')])
-    major = StringField('Major', default='(Optional)',validators=[Length(0, 64)])
+    major = StringField('Major',validators=[Length(0, 64)])
     gpa = DecimalField("Bachelor's GPA", validators=[NumberRange(min=0,max=4,message="Please enter a value between 0.0 and 4.0"), Optional()])
-    phonenumber = StringField('Phone',default='(Optional)', validators=[validatePhone])
-    relexp = TextAreaField('Relevant Experience', default='(Optional)',validators=[Length(0,500)])
+    phonenumber = StringField('Phone', validators=[validatePhone])
+    relexp = TextAreaField('Relevant Experience',validators=[Length(0,500)])
     submit = SubmitField()
 
 class NameForm(Form):

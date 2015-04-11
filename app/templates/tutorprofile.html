@@ -2,14 +2,25 @@
 {% block content %}
 <div class="intro-header">
 	<div class="row text-center row-centered">
-		<div class="col-md-3 vcenter col-centered-main">
 		{% for message in get_flashed_messages() %}
 		    <div class="alert alert-warning">
 		        <button type="button" class="close" data-dismiss="alert">&times;</button>
 		        {{ message }}
 		    </div>
 	    {% endfor %}
-		    {{ wtf.quick_form(form) }}
+		<div class="row text-center row-centered">
+			<div class="col-md-3 vcenter col-centered-main">
+				<form class="form" method="post" role="form">
+				{{ wtf.form_field(tutorForm.fullName) }}
+				{{ wtf.form_field(tutorForm.school) }}
+				{{ wtf.form_field(tutorForm.grade) }}
+				{{ wtf.form_field(tutorForm.major, placeholder="Optional") }}
+				{{ wtf.form_field(tutorForm.gpa) }}
+				{{ wtf.form_field(tutorForm.phonenumber, placeholder="Optional") }}
+				{{ wtf.form_field(tutorForm.relexp, placeholder="Optional") }}
+				{{ wtf.form_field(tutorForm.submit) }}
+				</form>
+			</div>
 		</div>
 	</div>
 </div>
