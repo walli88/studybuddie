@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, flash
+from flask import render_template, redirect, url_for, flash, request
 from . import auth
 from .forms import LoginForm, SignUpForm, RegistrationForm
 from ..models import User
@@ -11,10 +11,12 @@ from flask.ext.login import login_user, logout_user, login_required, current_use
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
 	form = RegistrationForm()
+	if request.method == 'GET' and request.args.get('email') is not None:
+		form.email.data=request.args.get('email')
+
 	if form.validate_on_submit():
 		user = User(email=form.email.data,
-					password=form.password.data,
-					username=form.username.data)
+					password=form.password.data)
 		if user is not None and form.email.data:
 			userDb = User.query.filter_by(email=form.email.data).first()
 			if userDb is None:
@@ -22,7 +24,7 @@ def register():
 				db.session.commit()
 			send_mandrill(user.email, "Welcome to Studybuddie", 'WelcomeEmail')
 		return redirect(url_for('main.profile'))
-	return render_template('auth/register.html', form=form, hideLogin=True)
+	return render_template('auth/register.html', form=form, hideLogin=True, email=form.email.data)
 
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -34,7 +36,7 @@ def signup():
 			db.session.add(user)
 			db.session.commit()
 		send_mandrill(user.email, "Welcome to Studybuddie", 'WelcomeEmail')
-	return redirect(url_for('auth.register'))
+	return redirect(url_for('auth.register', email=signUpForm.email.data))
 
 
 @auth.route('/registertutor', methods=['GET', 'POST'])
