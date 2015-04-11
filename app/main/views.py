@@ -4,7 +4,7 @@ from ..auth.forms import LoginForm, SignUpForm, RegistrationForm
 from .forms import StudentForm, TutorForm, GetHelpForm
 from flask.ext.mail import Message
 from .. import mail
-from ..models import User, Tutor, Student
+from ..models import User, Tutor, Student, GetHelp
 from app import db
 from ..email import send_email, send_mandrill
 from flask.ext.login import current_user, login_required
@@ -33,10 +33,14 @@ def signedup():
 def gethelp():
 	getHelpForm = GetHelpForm()
 	if getHelpForm.validate_on_submit():
-		getHelp = getHelp()
-		print current_user
-		print current_user.id
-		# getHelp = GetHelp(st)
+		student = Student.query.filter_by(user_id=current_user.id).first()
+		print student.fullname
+		if student is not None:
+			getHelp = GetHelp(class_number=getHelpForm.classNumber.data,location=getHelpForm.location.data,help_comment=getHelpForm.helpComment.data,
+				duration=getHelpForm.duration.data,student=student)
+			if getHelp is not None:
+				db.session.add(getHelp)
+				db.session.commit()
 	return render_template('gethelp.html', getHelpForm=getHelpForm, hideLogin=True)
 
 
@@ -45,8 +49,8 @@ def gethelp():
 def profile():
 	studentForm = StudentForm()
 	if studentForm.validate_on_submit():
-		student = Student(fullname=studentForm.fullName,school=studentForm.schoolName,
-					grade=studentForm.grade,phonenumber=studentForm.phoneNumber,major=studentForm.major,user_id=current_user.id)
+		student = Student(fullname=studentForm.fullName.data,school=studentForm.schoolName.data,
+					grade=studentForm.grade.data,phonenumber=studentForm.phoneNumber.data,major=studentForm.major.data,user=current_user._get_current_object())
 		if student is not None:
 			db.session.add(student)
 			db.session.commit()
@@ -67,7 +71,7 @@ def tutorprofile():
 
 	if tutorForm.validate_on_submit():
 		tutorForm = TutorForm()
-		tutor = Tutor(fullname = tutorForm.fullName.data,school=tutorForm.school.data, grade=tutorForm.grade.data
+		tutor = Tutor(fullname = tutorForm.fullName.data, user_id = current_user.id, school=tutorForm.school.data, grade=tutorForm.grade.data
 			,major=tutorForm.major.data,gpa=float(tutorForm.gpa.data) if tutorForm.gpa.data != "(Optional)" else None
 			,phonenumber=tutorForm.phonenumber.data,relexp=tutorForm.relexp.data)
 		if tutor is not None and tutorForm.email.data:

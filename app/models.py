@@ -10,6 +10,8 @@ class User(UserMixin,db.Model):
 	username = db.Column(db.String(64), unique=True, index=True)
 	created_on = db.Column(db.DateTime, default=db.func.now())
 	updated_on = db.Column(db.DateTime, default=db.func.now(), onupdate=db.func.now())
+	student = db.relationship('Student',backref='user',lazy='dynamic')
+	tutor = db.relationship('Tutor',backref='user',lazy='dynamic')
 
 	@property
 	def password(self):
@@ -49,16 +51,17 @@ class Student(db.Model):
 	grade = db.Column(db.String(64))
 	phonenumber = db.Column(db.String(10))
 	major = db.Column(db.String(64))
+	gethelp = db.relationship('GetHelp',backref='student',lazy='dynamic')
 
 class GetHelp(db.Model):
 	__tablename__ = 'get_help'
 	id = db.Column(db.Integer, primary_key=True)
 	student_id = db.Column(db.Integer, db.ForeignKey('student.id'))
-	class_name = db.Column(db.String(64))
-	class_number = db.Column(db.String(64), unique=True, index=True)
+	class_number = db.Column(db.String(64))
 	location = db.Column(db.String(64))
 	help_comment = db.Column(db.String(64))
 	duration = db.Column(db.String(64))
 	start_datetime = db.Column(db.DateTime)
 	start_time = db.Column(db.DateTime)
 	created_on = db.Column(db.DateTime, default=db.func.now())
+
