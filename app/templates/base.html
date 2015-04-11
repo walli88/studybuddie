@@ -26,12 +26,21 @@ StudyBuddie Tutoring
         <div class="collapse navbar-collapse main-nav">
             <ul class="nav navbar-nav navbar-right">
 				{% if not current_user.is_authenticated()%}
-				<li>
-					<a class="cd-signin" href="#0">Log in&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-				</li>
-				<li>
-					<a class="cd-signup" href="#0">Register</a>
-				</li>
+					{% if not hideLogin %}
+					<li>
+						<a class="cd-signin" href="#0">Log in&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+					</li>
+					<li>
+						<a class="cd-signup" href="#0">Register</a>
+					</li>
+					{% else %}
+					<li>
+						<a href="login">Log in</a>
+					</li>
+					<li>
+						<a href="register">Register</a>
+					</li>
+					{% endif %}
 				{% else %}
 
 				<li>
