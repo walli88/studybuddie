@@ -11,7 +11,9 @@ from flask.ext.login import current_user, login_required
 
 @main.route('/dashboard', methods=['GET','POST'])
 def dashboard():
-	return render_template('dashboard.html')
+	student = Student.query.filter_by(user_id=current_user.id).first()
+	schoolMap = {'colm':'Columbia University', 'nyu':'New York University'}
+	return render_template('dashboard.html',FirstName=student.fullname,SchoolName=schoolMap[student.school])
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
