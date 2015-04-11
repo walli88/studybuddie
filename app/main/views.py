@@ -7,7 +7,7 @@ from .. import mail
 from ..models import User, Tutor, Student
 from app import db
 from ..email import send_email, send_mandrill
-from flask.ext.login import current_user
+from flask.ext.login import current_user, login_required
 
 
 @main.route('/', methods=['GET', 'POST'])
@@ -29,9 +29,11 @@ def signedup():
 	return render_template('index2.html', loginForm=loginForm,signUpForm=signUpForm)
 
 @main.route('/gethelp', methods=['GET', 'POST'])
+@login_required
 def gethelp():
 	getHelpForm = GetHelpForm()
 	if getHelpForm.validate_on_submit():
+		getHelp = getHelp()
 		print current_user
 		print current_user.id
 		# getHelp = GetHelp(st)
@@ -39,6 +41,7 @@ def gethelp():
 
 
 @main.route('/profile', methods=['GET', 'POST'])
+@login_required
 def profile():
 	studentForm = StudentForm()
 	if studentForm.validate_on_submit():
@@ -55,6 +58,7 @@ def tutors():
 	return render_template('tutors.html', form=form)
 
 @main.route('/tutorprofile', methods=['GET', 'POST'])
+@login_required
 def tutorprofile():
 	tutorForm = TutorForm()
 	if request.method == 'GET' and request.args.get('email') is not None:
@@ -63,8 +67,7 @@ def tutorprofile():
 
 	if tutorForm.validate_on_submit():
 		tutorForm = TutorForm()
-		tutor = Tutor(fullname = tutorForm.fullName.data, email=tutorForm.email.data
-			,school=tutorForm.school.data, grade=tutorForm.grade.data
+		tutor = Tutor(fullname = tutorForm.fullName.data,school=tutorForm.school.data, grade=tutorForm.grade.data
 			,major=tutorForm.major.data,gpa=float(tutorForm.gpa.data) if tutorForm.gpa.data != "(Optional)" else None
 			,phonenumber=tutorForm.phonenumber.data,relexp=tutorForm.relexp.data)
 		if tutor is not None and tutorForm.email.data:
