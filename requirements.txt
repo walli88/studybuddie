@@ -4,7 +4,7 @@ Flask-SQLAlchemy==0.16
 Jinja2==2.7
 MarkupSafe==0.18
 SQLAlchemy
-Werkzeug==0.9.2
+Werkzeug
 gunicorn==17.5
 itsdangerous==0.22
 mimerender==0.5.4

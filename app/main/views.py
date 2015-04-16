@@ -21,6 +21,10 @@ def dashboard():
 		schoolname = schoolMap[student.school]
 	return render_template('dashboard.html',FirstName=fullname,SchoolName=Schoolname)
 
+@main.route('/tutordashboard', methods=['GET', 'POST'])
+def tutordashboard():
+	return render_template('tutordashboard.html')
+
 @main.route('/', methods=['GET', 'POST'])
 def index():
 	loginForm = LoginForm()

@@ -57,6 +57,9 @@ def login():
 	if form.validate_on_submit():
 		print "this is what i'm printing" + form.email.data
 		user = User.query.filter_by(email=form.email.data).first()
+		print user
+		print user.email
+		print form.password.data
 		if user is not None and user.verify_password(form.password.data):
 			login_user(user, form.remember_me.data)
 			return redirect(url_for('main.profile'))
