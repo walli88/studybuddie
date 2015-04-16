@@ -17,6 +17,7 @@ def register():
 	if form.validate_on_submit():
 		user = User(email=form.email.data,
 					password=form.password.data)
+
 		if user is not None and form.email.data:
 			userDb = User.query.filter_by(email=form.email.data).first()
 			if userDb is None:
@@ -55,7 +56,6 @@ def registerstudent():
 def login():
 	form = LoginForm()
 	if form.validate_on_submit():
-		print "this is what i'm printing" + form.email.data
 		user = User.query.filter_by(email=form.email.data).first()
 		if user is not None and user.verify_password(form.password.data):
 			login_user(user, form.remember_me.data)
