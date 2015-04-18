@@ -1,0 +1,49 @@
+{% extends "base.html"%}
+{% block content %}
+    <div class="dashboard-section-b">
+        <div class="row">
+            <h1 class="firstname">Hi {{FirstName}},</h1>
+            <h1 class="red-sentence">Earn money for what you already know, be a StudyBuddie today. </h1>
+        </div>
+    </div>
+    <div class="dashboard-section-a">
+        <div class="row">
+            <h1 class="black-sentence">Your current scheduled availbility:</h1><br>
+        </div>
+
+        <div class="row">
+            <p class="dashboard-lead">
+                <u class="dotted">Mon 5-8<br></u>
+                <u class="dotted">Tues 10-3<br></u>
+                <u class="dotted">Sun 10-10<br></u>
+            </p>
+
+            <div class="button-pad">
+                <a href="#" class="btn btn-success btn-lg">Update your Schedule</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <h1 class="black-sentence">You're signed up to be a StudyBuddie in these classes at {School Name}:</h1><br>
+            <div class="row">
+                <p class="dashboard-lead">
+                    <u class="dotted">CHEM101<br></u>
+                    <u class="dotted">CS23<br></u>
+                    <u class="dotted">MATH207<br></u>
+                </p>
+            </div>
+            <div class="button-pad">
+                <a href="#" class="btn btn-success btn-lg">Update your Classes</a>
+            </div>
+        </div>
+    </div>
+    <div class="dashboard-section-b">
+        <div class="row">
+            <h1 class="red-sentence">Your StudyBuddie Commitments:</h1>
+        </div>
+
+        <div class="row">
+            <h1 class="button-pad lead">Looks like you haven't scheduled anything yet</h1>
+        </div>
+    </div>
+{% endblock %}
