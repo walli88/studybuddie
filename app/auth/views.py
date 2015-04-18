@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for, flash, request
 from . import auth
 from .forms import LoginForm, SignUpForm, RegistrationForm
-from ..models import User, SignUp
+from ..models import User
 from .. import mail
 from app import db
 from flask.ext.mail import Message
