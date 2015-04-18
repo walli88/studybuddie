@@ -28,6 +28,12 @@ class User(UserMixin,db.Model):
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+class SignUp(db.Model):
+	__tablename__  = 'signup'
+	id = db.Column(db.Integer, primary_key=True)
+	email = db.Column(db.String(64), unique=True, index=True)
+	created_on = db.Column(db.DateTime, default=db.func.now())
+
 class Tutor(db.Model):
 	__tablename__ = 'tutor'
 	id = db.Column(db.Integer, primary_key=True)
