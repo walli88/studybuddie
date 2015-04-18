@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for, flash, request
 from . import auth
 from .forms import LoginForm, SignUpForm, RegistrationForm
-from ..models import User
+from ..models import User, SignUp
 from .. import mail
 from app import db
 from flask.ext.mail import Message
@@ -23,7 +23,7 @@ def register():
 			if userDb is None:
 				db.session.add(user)
 				db.session.commit()
-			send_mandrill(user.email, "Welcome to Studybuddie", 'WelcomeEmail')
+		login_user(user)
 		return redirect(url_for('main.profile'))
 	return render_template('auth/register.html', form=form, hideLogin=True, email=form.email.data)
 
