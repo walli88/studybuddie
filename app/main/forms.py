@@ -22,15 +22,14 @@ class GetHelpForm(Form):
     submit = SubmitField()
 
 class StudentForm(Form):
-    fullName = StringField('Name', validators=[Required(message="Name is required"),Length(0,64)])
-    schoolName  = SelectField(u'School', default='none', choices=[('none', 'Please select your school'), ('colm', 'Columbia University'), ('nyu', 'New York University')
+    fullname = StringField('Name', validators=[Required(message="Name is required"),Length(0,64)])
+    school  = SelectField(u'School', default='none', choices=[('none', 'Please select your school'), ('colm', 'Columbia University'), ('nyu', 'New York University')
         , ('other', 'Other')])
     grade = SelectField(u'Year', default='none', choices=[('none', 'Please select your year'), ('fr', 'Freshman'), ('soph', 'Sophmore'), ('jr','Junior',),('sr','Senior'),('oth','Grad Student')
         , ('other', 'Other')])
-    phoneNumber = StringField('Phone Number', validators=[Length(0, 64)])
+    phonenumber = StringField('Phone Number', validators=[Length(0, 64)])
     major = StringField('Major')
     submit = SubmitField()
-
 
 class TutorForm(Form):
     fullName = StringField('Full Name', validators=[Required(), Length(1, 64)])

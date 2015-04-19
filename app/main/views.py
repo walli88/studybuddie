@@ -66,14 +66,27 @@ def gethelp():
 @main.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
-	studentForm = StudentForm()
+	student = Student.query.filter_by(user_id=current_user.id).first()
+	print student
+	studentForm = StudentForm(request.form,obj=student)
+	if student is not None:
+		studentForm.submit.label.text='Edit'
 	if studentForm.validate_on_submit():
-		student = Student(fullname=studentForm.fullName.data,school=studentForm.schoolName.data,
-					grade=studentForm.grade.data,phonenumber=studentForm.phoneNumber.data,major=studentForm.major.data,user=current_user._get_current_object())
 		if student is not None:
+			student.fullname = studentForm.fullname.data
+			student.school =  studentForm.school.data
+			student.grade = studentForm.grade.data
+			student.phonenumber = studentForm.phonenumber.data
+			student.major = studentForm.major.data
+			db.session.merge(student)
+			db.session.commit()
+		else:
+			student = Student(fullname=studentForm.fullname.data,school=studentForm.school.data,
+					grade=studentForm.grade.data,phonenumber=studentForm.phonenumber.data,major=studentForm.major.data,user=current_user._get_current_object())
 			db.session.add(student)
 			db.session.commit()
-	return render_template('profile.html', studentForm=studentForm, hideLogin=True)
+		return redirect(url_for('main.profile', studentForm=studentForm))
+	return render_template('profile.html', studentForm=studentForm)
 
 @main.route('/tutors', methods=['GET', 'POST'])
 def tutors():

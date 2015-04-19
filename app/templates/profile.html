@@ -12,10 +12,10 @@
 
 			<form class="form" method="post" role="form">
 			{{studentForm.csrf_token}}
-			{{ wtf.form_field(studentForm.fullName) }}
-			{{ wtf.form_field(studentForm.schoolName) }}
+			{{ wtf.form_field(studentForm.fullname) }}
+			{{ wtf.form_field(studentForm.school) }}
 			{{ wtf.form_field(studentForm.grade) }}
-			{{ wtf.form_field(studentForm.phoneNumber) }}
+			{{ wtf.form_field(studentForm.phonenumber) }}
 			{{ wtf.form_field(studentForm.major, placeholder="Optional") }}
 			{{ wtf.form_field(studentForm.submit) }}
 			</form>
