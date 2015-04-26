@@ -51,10 +51,14 @@ StudyBuddie Tutoring
 				</li>
 				{% endif %}
                 <li>
-                    <a href="aboutus">About</a>
+                    <a href="{{ url_for('main.aboutus') }}">About</a>
                 </li>
                 <li>
-                    <a href="tutors">Become a Tutor</a>
+                	{% if not current_user.is_authenticated() %}
+	                    <a href=" {{ url_for('main.tutors') }}">Become a Tutor</a>
+                    {% else %}
+	                    <a href=" {{ url_for('main.tutorprofile') }}">Become a Tutor</a>
+                    {% endif %}
                 </li>
             </ul>
         </div>

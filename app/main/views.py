@@ -53,7 +53,6 @@ def gethelp():
 	getHelpForm = GetHelpForm()
 	if getHelpForm.validate_on_submit():
 		student = Student.query.filter_by(user_id=current_user.id).first()
-		print student.fullname
 		if student is not None:
 			getHelp = GetHelp(class_number=getHelpForm.classNumber.data,location=getHelpForm.location.data,help_comment=getHelpForm.helpComment.data,
 				duration=getHelpForm.duration.data,student=student)
@@ -67,7 +66,6 @@ def gethelp():
 @login_required
 def profile():
 	student = Student.query.filter_by(user_id=current_user.id).first()
-	print student
 	studentForm = StudentForm(request.form,obj=student)
 	if student is not None:
 		studentForm.submit.label.text='Edit'
@@ -90,20 +88,25 @@ def profile():
 
 @main.route('/tutors', methods=['GET', 'POST'])
 def tutors():
-	form = LoginForm()
-	return render_template('tutors.html', form=form)
+	signUpForm = SignUpForm()
+	return render_template('tutors.html', tutor=True, signUpForm=signUpForm)
 
 @main.route('/tutorprofile', methods=['GET', 'POST'])
 @login_required
 def tutorprofile():
-	tutorForm = TutorForm()
+
+	tutor = Tutor.query.filter_by(user_id=current_user.id).first()
+	tutorForm = TutorForm(request.form,obj=tutor)
+	# if request.method == 'POST':
+	# 	tutorForm = TutorForm(request.form,obj=tutor)
+	# else:
 	if request.method == 'GET' and request.args.get('email') is not None:
 		tutorForm.email.data=request.args.get('email')
 		send_mandrill(form.email.data, "Welcome to Studybuddie", 'TutorWelcomeEmail')
 
 	if tutorForm.validate_on_submit():
 		tutorForm = TutorForm()
-		tutor = Tutor(fullname = tutorForm.fullName.data, user_id = current_user.id, school=tutorForm.school.data, grade=tutorForm.grade.data
+		tutor = Tutor(fullname = tutorForm.fullname.data, user_id = current_user.id, school=tutorForm.school.data, grade=tutorForm.grade.data
 			,major=tutorForm.major.data,gpa=float(tutorForm.gpa.data) if tutorForm.gpa.data != "(Optional)" else None
 			,phonenumber=tutorForm.phonenumber.data,relexp=tutorForm.relexp.data)
 		if tutor is not None and tutorForm.email.data:

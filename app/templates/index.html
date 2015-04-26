@@ -38,7 +38,7 @@
             </div> <!-- cd-login -->
 
             <div id="cd-signup"> <!-- sign up form -->
-                <form class="cd-form" method="POST" action="auth/register">
+                <form class="cd-form" method="POST" action="{{ url_for('auth.register', tutor=True) }}">
                     {{ registerForm.hidden_tag() }}
                     <p class="fieldset">
                         <label class="image-replace cd-email" for="signup-email">E-mail</label>
@@ -121,12 +121,11 @@
                  </div>
              </div>
              <div class="row">
-                        <form class="form-lead-capture" method="POST" action="auth/signup">
+                        <form class="form-lead-capture" method="POST" action="{{ url_for('auth.signup', tutor=False) }}">
                         <label class="email-capture">
-                        {{ loginForm.hidden_tag() }}
-                        {{ loginForm.email(placeholder="        Enter your email address") }}
-                        {{loginForm.submit(class="button button-navy input-lead-gen", value="Sign Up")}}
-                       <!-- <input type="submit" class="button button-navy input-lead-gen" value="Get Started"></input> -->
+                        {{ signUpForm.hidden_tag() }}
+                        {{ signUpForm.email(placeholder="        Enter your email address") }}
+                        {{ signUpForm.submit(class="button button-navy input-lead-gen", value="Sign Up")}}
                         </form>
             </div>
         </div>
