@@ -83,7 +83,7 @@ def profile():
 					grade=studentForm.grade.data,phonenumber=studentForm.phonenumber.data,major=studentForm.major.data,user=current_user._get_current_object())
 			db.session.add(student)
 			db.session.commit()
-		return redirect(url_for('main.profile', studentForm=studentForm))
+		return redirect(url_for('main.profile'))
 	return render_template('profile.html', studentForm=studentForm)
 
 @main.route('/tutors', methods=['GET', 'POST'])
@@ -94,27 +94,39 @@ def tutors():
 @main.route('/tutorprofile', methods=['GET', 'POST'])
 @login_required
 def tutorprofile():
-
 	tutor = Tutor.query.filter_by(user_id=current_user.id).first()
+	student = Student.query.filter_by(user_id=current_user.id).first()
 	tutorForm = TutorForm(request.form,obj=tutor)
-	# if request.method == 'POST':
-	# 	tutorForm = TutorForm(request.form,obj=tutor)
-	# else:
-	if request.method == 'GET' and request.args.get('email') is not None:
-		tutorForm.email.data=request.args.get('email')
-		send_mandrill(form.email.data, "Welcome to Studybuddie", 'TutorWelcomeEmail')
+
+	if student is not None and tutor is None:
+		tutorForm.fullname.data = student.fullname
+		tutorForm.school.data = student.school
+		tutorForm.grade.data = student.grade
+		tutorForm.major.data = student.major
+		tutorForm.phonenumber.data = student.phonenumber
+
+	if tutor is not None:
+		tutorForm.submit.label.text='Edit'
 
 	if tutorForm.validate_on_submit():
-		tutorForm = TutorForm()
-		tutor = Tutor(fullname = tutorForm.fullname.data, user_id = current_user.id, school=tutorForm.school.data, grade=tutorForm.grade.data
-			,major=tutorForm.major.data,gpa=float(tutorForm.gpa.data) if tutorForm.gpa.data != "(Optional)" else None
-			,phonenumber=tutorForm.phonenumber.data,relexp=tutorForm.relexp.data)
-		if tutor is not None and tutorForm.email.data:
-			tutorDb = Tutor.query.filter_by(email=tutorForm.email.data).first()
-			if tutorDb is None:
-				db.session.add(tutor)
-				db.session.commit()
-				flash('Thanks for signing up!')
+		print "tutorForm validated"
+		if tutor is not None:
+			tutor.fullname = tutorForm.fullname.data
+			tutor.school =  tutorForm.school.data
+			tutor.grade = tutorForm.grade.data
+			tutor.phonenumber = tutorForm.phonenumber.data
+			tutor.major = tutorForm.major.data
+			db.session.merge(tutor)
+			db.session.commit()
+			flash('Your tutor profile has been updated!')
+		else:
+			tutor = Tutor(fullname = tutorForm.fullname.data, user_id = current_user.id, school=tutorForm.school.data, grade=tutorForm.grade.data
+				,major=tutorForm.major.data,gpa=float(tutorForm.gpa.data) if tutorForm.gpa.data != "(Optional)" else None
+				,phonenumber=tutorForm.phonenumber.data,relexp=tutorForm.relexp.data)
+			db.session.add(tutor)
+			db.session.commit()
+			flash('Thanks for signing up to be a tutor!')
+		return redirect(url_for('main.tutorprofile'))
 	return render_template('tutorprofile.html', tutorForm=tutorForm, hideLogin=True)
 
 

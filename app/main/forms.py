@@ -23,18 +23,17 @@ class StudentForm(Form):
     fullname = StringField('Name', validators=[Required(message="Name is required"),Length(0,64)])
     school  = SelectField(u'School', default='none', choices=[('none', 'Please select your school'), ('colm', 'Columbia University'), ('nyu', 'New York University')
         , ('other', 'Other')])
-    grade = SelectField(u'Year', default='none', choices=[('none', 'Please select your year'), ('fr', 'Freshman'), ('soph', 'Sophmore'), ('jr','Junior',),('sr','Senior'),('oth','Grad Student')
+    grade = SelectField(u'Year', default='none', choices=[('none', 'Please select your year'), ('freshman', 'Freshman'), ('sophmore', 'Sophmore'), ('junior','Junior',),('senior','Senior'),('grad','Grad Student')
         , ('other', 'Other')])
-    phonenumber = StringField('Phone Number', validators=[Length(0, 64)])
+    phonenumber = StringField('Phone Number', validators=[validatePhone])
     major = StringField('Major')
     submit = SubmitField()
 
 class TutorForm(Form):
-    fullname = StringField('Full Name', validators=[Required(), Length(1, 64)])
-    email = StringField('Email', validators=[Required(), Length(1, 64), Email()])
+    fullname = StringField('Full Name', validators=[Required(message="Name is required"), Length(0, 64)])
     school  = SelectField(u'School', default='none', choices=[('none', 'Please select your school'), ('colm', 'Columbia University'), ('fordham', 'Fordham University'), ('hunter', 'Hunter University'), ('nyu', 'New York University'), ('pace', 'Pace University'), ('cunyq', 'Queens College, CUNY')
         , ('other', 'Other')])
-    grade = SelectField(u'Grade', default = 'none', choices=[('none', 'Please select your grade'),('fresh', 'Freshman'), ('soph', 'Sophmore'), ('junior', 'Junior'),('senior', 'Senior'),
+    grade = SelectField(u'Grade', default = 'none', choices=[('none', 'Please select your grade'),('freshman', 'Freshman'), ('sophmore', 'Sophmore'), ('junior', 'Junior'),('senior', 'Senior'),
         ('grad', 'Masters'),('phd', 'Ph.D'),('alum', 'Alumni')])
     major = StringField('Major',validators=[Length(0, 64)])
     gpa = DecimalField("Bachelor's GPA", validators=[NumberRange(min=0,max=4,message="Please enter a value between 0.0 and 4.0"), Optional()])
