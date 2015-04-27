@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
 from . import main
 from ..auth.forms import LoginForm, SignUpForm, RegistrationForm
-from .forms import StudentForm, TutorForm, GetHelpForm
+from .forms import StudentForm, TutorForm, GetHelpForm, ScheduleForm
 from flask.ext.mail import Message
 from .. import mail
 from ..models import User, Tutor, Student, GetHelp
@@ -19,7 +19,8 @@ def dashboard():
 	if student is not None:
 		fullname = student.fullname
 		schoolname = schoolMap[student.school]
-	return render_template('dashboard.html',FirstName=fullname,SchoolName=Schoolname)
+	getHelps = GetHelp.query.all()
+	return render_template('dashboard.html',FirstName=fullname,SchoolName=Schoolname,getHelps=getHelps)
 
 @main.route('/tutordashboard', methods=['GET', 'POST'])
 def tutordashboard():
@@ -59,6 +60,7 @@ def gethelp():
 			if getHelp is not None:
 				db.session.add(getHelp)
 				db.session.commit()
+			return redirect(url_for('main.dashboard'))
 	return render_template('gethelp.html', getHelpForm=getHelpForm, hideLogin=True)
 
 
@@ -129,4 +131,7 @@ def tutorprofile():
 		return redirect(url_for('main.tutorprofile'))
 	return render_template('tutorprofile.html', tutorForm=tutorForm, hideLogin=True)
 
-
+@main.route('/schedule', methods=['GET', 'POST'])
+def schedule():
+	scheduleForm = ScheduleForm()
+	return render_template('schedule.html', tutor=True,scheduleForm=scheduleForm)

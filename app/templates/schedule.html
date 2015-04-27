@@ -1,0 +1,46 @@
+{% extends "base.html"%}
+{% block content %}
+
+<div class="intro-header">
+    <div class="intro-message">
+        <p class="lead">Enter your schedule availability!</p>
+     </div>
+	<div class="row text-center row-centered">
+
+		<div class="vcenter col-centered-main">
+
+			<form class="form" method="post" role="form">
+			{{scheduleForm.csrf_token}}
+				<div class="form-group">
+				<label class="checkbox-inline">
+					{{ scheduleForm.mon() }} Mon
+				</label>
+				<label class="checkbox-inline">
+					{{ scheduleForm.tues() }} Tues
+				</label>
+				<label class="checkbox-inline">
+					{{ scheduleForm.wed() }} Wed
+				</label>
+				<label class="checkbox-inline">
+					{{ scheduleForm.thurs() }} Thurs
+				</label>
+				<label class="checkbox-inline">
+					{{ scheduleForm.fri() }} Fri
+				</label>
+				<label class="checkbox-inline">
+					{{ scheduleForm.sat() }} Sat
+				</label>
+				<label class="checkbox-inline">
+					{{ scheduleForm.sun() }} Sun
+				</label>
+				</div>
+				{{ wtf.form_field(scheduleForm.date) }}
+				{{ wtf.form_field(scheduleForm.startTime) }}
+				{{ wtf.form_field(scheduleForm.endTime) }}
+				{{ wtf.form_field(scheduleForm.submit) }}
+			</form>
+
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -58,6 +58,9 @@ StudyBuddie Tutoring
                 <li>
                     <a href="{{ url_for('main.dashboard') }}">Home</a>
                 </li>
+                <li>
+                    <a href="{{ url_for('main.gethelp') }}">Get Help</a>
+                </li>
                 {% endif %}
                 <li>
                 	{% if not current_user.is_authenticated() %}

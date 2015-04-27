@@ -29,7 +29,11 @@
         </div>
 
         <div class="row">
+
             <h1 class="button-pad lead">Looks like you haven't scheduled anything yet</h1>
+        {% for getHelp in getHelps %}
+            {{getHelp.class_number}}
+        {% endfor %}
         </div>
     </div>
 {% endblock %}

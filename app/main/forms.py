@@ -19,6 +19,19 @@ class GetHelpForm(Form):
     whenStartTime = DateTimeField('Start time (00:00-23:59)?',format='%H:%M', default= dt.datetime.now() + dt.timedelta(hours=1))
     submit = SubmitField()
 
+class ScheduleForm(Form):
+    date = DateField('Week of? (Any day in the week will do)',format='%m/%d/%Y', default=dt.datetime.now)
+    mon = BooleanField('Monday')
+    tues = BooleanField('Tuesday')
+    wed = BooleanField('Wednesday')
+    thurs = BooleanField('Thursday')
+    fri = BooleanField('Friday')
+    sat = BooleanField('Saturday')
+    sun = BooleanField('Sunday')
+    startTime = DateTimeField('Start time (00:00-23:59)?',format='%H:%M', default= dt.datetime.now())
+    endTime = DateTimeField('Start time (00:00-23:59)?',format='%H:%M', default= dt.datetime.now() + dt.timedelta(hours=1))
+    submit = SubmitField("Add")
+
 class StudentForm(Form):
     fullname = StringField('Name', validators=[Required(message="Name is required"),Length(0,64)])
     school  = SelectField(u'School', default='none', choices=[('none', 'Please select your school'), ('colm', 'Columbia University'), ('nyu', 'New York University')
