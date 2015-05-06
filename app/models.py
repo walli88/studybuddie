@@ -67,7 +67,12 @@ class GetHelp(db.Model):
 	location = db.Column(db.String(64))
 	help_comment = db.Column(db.String(64))
 	duration = db.Column(db.String(64))
-	start_datetime = db.Column(db.DateTime)
 	start_time = db.Column(db.DateTime)
 	created_on = db.Column(db.DateTime, default=db.func.now())
 
+class Schedule(db.Model):
+	__tablename__ = 'schedule'
+	id = db.Column(db.Integer, primary_key=True)
+	user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+	start = db.Column(db.DateTime)
+	end = db.Column(db.DateTime)
